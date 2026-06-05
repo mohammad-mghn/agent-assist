@@ -171,6 +171,14 @@ Open a GitHub issue with:
 
 ## Team and contact
 
+### Product owner
+
+**Hassan Faraji**
+
+[![Email](https://img.shields.io/badge/Email-mrmentor.cx%40gmail.com-EA4335?logo=gmail&logoColor=white)](mailto:mrmentor.cx@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Hassan%20Faraji-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/hassan-faraji-b975b2aa/)
+
+
 ### Developer
 
 **Mohammad Mohagheghian**
@@ -179,15 +187,11 @@ Open a GitHub issue with:
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Mohammad%20Mohagheghian-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohammad-mohagheghian/)
 [![Portfolio](https://img.shields.io/badge/Portfolio-mghn.info-000000?logo=googlechrome&logoColor=white)](https://mghn.info)
 
-### Product owner
-
-**Hassan Faraji**
-
-[![Email](https://img.shields.io/badge/Email-mrmentor.cx%40gmail.com-EA4335?logo=gmail&logoColor=white)](mailto:mrmentor.cx@gmail.com)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Hassan%20Faraji-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/hassan-faraji-b975b2aa/)
 
 ---
 
 ## License
 
-[MIT](LICENSE) © 2026 Mohammad Mohagheghian
+[MIT](LICENSE) © 2026 Mohammad & Hassan 
+
+
