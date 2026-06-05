@@ -15,14 +15,20 @@
   <img src="https://img.shields.io/badge/Firefox-MV2-FF7139?logo=firefoxbrowser&logoColor=white" alt="Firefox" />
 </p>
 
-<p align="center">
-  <img src="./screenshots/en-light.png" alt="Agent Assist dashboard — English, light theme" width="420" />
-  <img src="./screenshots/en-dark.png" alt="Agent Assist dashboard — English, dark theme" width="420" />
+<p>
+  <img src="./screenshots/en-light.png" alt="Agent Assist dashboard — English, light theme" width="100%" />
 </p>
 
-<p align="center">
-  <img src="./screenshots/fa-light.png" alt="Agent Assist dashboard — Persian, light theme" width="420" />
-  <img src="./screenshots/fa-dark.png" alt="Agent Assist dashboard — Persian, dark theme" width="420" />
+<p>
+  <img src="./screenshots/en-dark.png" alt="Agent Assist dashboard — English, dark theme" width="100%" />
+</p>
+
+<p>
+  <img src="./screenshots/fa-light.png" alt="Agent Assist dashboard — Persian, light theme" width="100%" />
+</p>
+
+<p>
+  <img src="./screenshots/fa-dark.png" alt="Agent Assist dashboard — Persian, dark theme" width="100%" />
 </p>
 
 ---
