@@ -31,6 +31,14 @@
   <img src="./screenshots/fa-dark.png" alt="Agent Assist dashboard — Persian, dark theme" width="100%" />
 </p>
 
+<p>
+  <img src="./screenshots/dropdown-light.png" alt="Agent Assist inline snippet menu — light theme" width="100%" />
+</p>
+
+<p>
+  <img src="./screenshots/dropdown-dark.png" alt="Agent Assist inline snippet menu — dark theme" width="100%" />
+</p>
+
 ---
 
 ## What it does
