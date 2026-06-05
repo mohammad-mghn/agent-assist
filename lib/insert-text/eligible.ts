@@ -2,17 +2,7 @@ function isInsideSnippetAssistUi(el: Element): boolean {
   return !!el.closest('[data-snippet-assist]:not([data-snippet-assist="dropdown"])');
 }
 
-export function getDeepActiveElement(
-  root: Document | ShadowRoot = document,
-): Element | null {
-  let active = root.activeElement;
-  while (active instanceof HTMLElement && active.shadowRoot?.activeElement) {
-    active = active.shadowRoot.activeElement;
-  }
-  return active;
-}
-
-export function isEligibleElement(el: Element | null): el is HTMLElement {
+function isDirectlyEligible(el: Element | null): el is HTMLElement {
   if (!el || !(el instanceof HTMLElement)) return false;
   if (isInsideSnippetAssistUi(el)) return false;
   if (el instanceof HTMLInputElement || el instanceof HTMLSelectElement) {
@@ -29,22 +19,68 @@ export function isEligibleElement(el: Element | null): el is HTMLElement {
   return false;
 }
 
+export function getContentEditableHost(el: HTMLElement): HTMLElement {
+  if (!el.isContentEditable) return el;
+  let host = el;
+  let parent = el.parentElement;
+  while (parent?.isContentEditable && parent.getAttribute('contenteditable') !== 'false') {
+    host = parent;
+    parent = parent.parentElement;
+  }
+  return host;
+}
+
+function normalizeEligibleElement(el: HTMLElement): HTMLElement {
+  if (el instanceof HTMLTextAreaElement) return el;
+  return getContentEditableHost(el);
+}
+
+function elementFromNode(node: EventTarget | Node | null): Element | null {
+  if (!node) return null;
+  if (node instanceof Element) return node;
+  if (node instanceof Text) return node.parentElement;
+  return null;
+}
+
+export function findEligibleAncestor(from: Element | null): HTMLElement | null {
+  let current: Element | null = from;
+  while (current) {
+    if (current instanceof HTMLElement && isDirectlyEligible(current)) {
+      return normalizeEligibleElement(current);
+    }
+    current = current.parentElement;
+  }
+  return null;
+}
+
+export function getDeepActiveElement(
+  root: Document | ShadowRoot = document,
+): Element | null {
+  let active = root.activeElement;
+  while (active instanceof HTMLElement && active.shadowRoot?.activeElement) {
+    active = active.shadowRoot.activeElement;
+  }
+  return active;
+}
+
+export function isEligibleElement(el: Element | null): el is HTMLElement {
+  return isDirectlyEligible(el);
+}
+
 export function resolveEligibleElement(
   target: EventTarget | null,
   composedPath: EventTarget[] = [],
 ): HTMLElement | null {
-  if (isEligibleElement(target as Element | null)) {
-    return target as HTMLElement;
-  }
+  const fromTarget = findEligibleAncestor(elementFromNode(target as Node | null));
+  if (fromTarget) return fromTarget;
 
   for (const node of composedPath) {
-    if (isEligibleElement(node as Element | null)) {
-      return node as HTMLElement;
-    }
+    const found = findEligibleAncestor(elementFromNode(node as Node | null));
+    if (found) return found;
   }
 
   const deepActive = getDeepActiveElement();
-  return isEligibleElement(deepActive) ? deepActive : null;
+  return findEligibleAncestor(deepActive);
 }
 
 export function isMultilineElement(el: HTMLElement): boolean {

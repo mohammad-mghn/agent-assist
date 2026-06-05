@@ -2,6 +2,7 @@ import { CONTENT_TRUNCATE_LEN, MAX_DROPDOWN_ITEMS } from '@/shared/constants';
 import type { UiTheme } from '@/shared/types';
 import { dropdownPosition } from '@/lib/dropdown-position';
 import { buildDropdownStyles } from '@/lib/dropdown-styles';
+import { findDropdownMountPoint } from '@/lib/dropdown-ui/mount-point';
 import type { DropdownItem } from '@/lib/shortcut-index';
 import { truncate } from '@/lib/utils';
 import { escapeHtml, renderShortcutHighlight } from './html';
@@ -17,6 +18,7 @@ export class SnippetDropdown {
   private items: DropdownItem[] = [];
   private onPick: (item: DropdownItem) => void;
   private onClose: () => void;
+  private mountContainer: HTMLElement = document.body;
 
   constructor(
     onPick: (item: DropdownItem) => void,
@@ -51,7 +53,8 @@ export class SnippetDropdown {
     return this.host;
   }
 
-  show(items: DropdownItem[], rect: DOMRect, activeIndex = 0): void {
+  show(items: DropdownItem[], rect: DOMRect, activeIndex = 0, anchor?: HTMLElement): void {
+    if (anchor) this.reparentTo(anchor);
     this.items = items.slice(0, MAX_DROPDOWN_ITEMS);
     this.activeIndex = Math.min(activeIndex, Math.max(0, this.items.length - 1));
     this.render();
@@ -64,6 +67,14 @@ export class SnippetDropdown {
   hide(): void {
     this.host.style.display = 'none';
     this.items = [];
+    this.reparentTo(document.body);
+  }
+
+  reparentTo(anchor: HTMLElement): void {
+    const next = findDropdownMountPoint(anchor);
+    if (next === this.mountContainer) return;
+    next.appendChild(this.host);
+    this.mountContainer = next;
   }
 
   destroy(): void {

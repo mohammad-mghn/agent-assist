@@ -1,5 +1,6 @@
 export {
   getDeepActiveElement,
+  getContentEditableHost,
   isEligibleElement,
   isMultilineElement,
   normalizeContent,

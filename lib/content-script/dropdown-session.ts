@@ -22,6 +22,7 @@ export interface SnippetAssistSession {
   uiLocale: UiLocale;
   dropdown: SnippetDropdown | null;
   open: boolean;
+  activeElement: HTMLElement | null;
 }
 
 export function createSnippetAssistSession(): SnippetAssistSession {
@@ -33,11 +34,13 @@ export function createSnippetAssistSession(): SnippetAssistSession {
     uiLocale: 'en-US',
     dropdown: null,
     open: false,
+    activeElement: null,
   };
 }
 
 export function closeDropdown(session: SnippetAssistSession): void {
   session.open = false;
+  session.activeElement = null;
   session.dropdown?.hide();
 }
 
@@ -45,7 +48,9 @@ export function ensureDropdown(session: SnippetAssistSession): SnippetDropdown {
   if (!session.dropdown) {
     session.dropdown = new SnippetDropdown(
       (item) => {
-        const el = resolveEligibleElement(getDeepActiveElement());
+        const el =
+          session.activeElement ??
+          resolveEligibleElement(getDeepActiveElement());
         if (!el) return;
         insertIntoElement(
           el,
@@ -99,7 +104,8 @@ export function updateDropdown(
 
   const ui = ensureDropdown(session);
   session.open = true;
-  ui.show(items, getCaretRect(el), ui.getActiveIndex());
+  session.activeElement = el;
+  ui.show(items, getCaretRect(el), ui.getActiveIndex(), el);
 }
 
 export function tryExactInsert(

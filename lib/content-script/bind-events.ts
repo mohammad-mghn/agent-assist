@@ -8,7 +8,7 @@ import {
   tryExactInsert,
   updateDropdown,
 } from '@/lib/content-script/dropdown-session';
-import { resolveEligibleElement } from '@/lib/insert-text';
+import { resolveEligibleElement, getDeepActiveElement } from '@/lib/insert-text';
 
 export function bindSnippetAssistEvents(session: SnippetAssistSession): void {
   document.addEventListener(
@@ -60,7 +60,25 @@ export function bindSnippetAssistEvents(session: SnippetAssistSession): void {
   document.addEventListener(
     'scroll',
     () => {
-      if (session.open) closeDropdown(session);
+      if (!session.open || !session.activeElement) return;
+      if (!session.activeElement.isConnected) {
+        closeDropdown(session);
+        return;
+      }
+      updateDropdown(session, session.activeElement);
+    },
+    true,
+  );
+
+  document.addEventListener(
+    'focusout',
+    () => {
+      if (!session.open || !session.activeElement) return;
+      queueMicrotask(() => {
+        if (!session.open) return;
+        const current = resolveEligibleElement(getDeepActiveElement());
+        if (current !== session.activeElement) closeDropdown(session);
+      });
     },
     true,
   );

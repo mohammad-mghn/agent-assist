@@ -2,6 +2,7 @@ import { initSnippetAssistContentScript } from '@/lib/content-script/snippet-ass
 
 export default defineContentScript({
   matches: ['<all_urls>'],
+  allFrames: true,
   runAt: 'document_idle',
   main() {
     initSnippetAssistContentScript();
