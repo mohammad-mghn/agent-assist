@@ -135,10 +135,10 @@ export class SnippetDropdown {
         const chipColor = item.category.color;
         return `<div class="row${active}" data-idx="${i}">
           <span class="idx">${i + 1}</span>
-          <span class="name">${escapeHtml(item.shortcut.name)}</span>
-          <span class="shortcut-wrap">${renderShortcutHighlight(trigger, item.shortcut.shortcut, item.query)}</span>
-          <span class="chip" style="background:${chipColor}">${escapeHtml(item.category.name)}</span>
-          <span class="preview">${escapeHtml(preview)}</span>
+          <span class="name" dir="auto">${escapeHtml(item.shortcut.name)}</span>
+          <span class="shortcut-wrap" dir="ltr">${renderShortcutHighlight(trigger, item.shortcut.shortcut, item.query)}</span>
+          <span class="chip" dir="auto" style="background:${chipColor}">${escapeHtml(item.category.name)}</span>
+          <span class="preview" dir="auto">${escapeHtml(preview)}</span>
         </div>`;
       })
       .join('');

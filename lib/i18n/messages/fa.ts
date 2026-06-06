@@ -47,6 +47,7 @@ export const fa: TranslationMap = {
   'sidebar.deleteShortcut': 'حذف {name}',
   'sidebar.deleteCategory': 'حذف دسته {name}',
   'sidebar.editCategory': 'ویرایش دسته {name}',
+  'sidebar.addShortcutToCategory': 'افزودن میانبر به {name}',
   'sidebar.temporary': 'موقت',
   'sidebar.clearCategories': 'پاک کردن دسته‌ها',
   'sidebar.clearCategoriesTitle': 'همه دسته‌ها پاک شوند؟',

@@ -47,6 +47,7 @@ export const tr: TranslationMap = {
   'sidebar.deleteShortcut': '{name} sil',
   'sidebar.deleteCategory': '{name} kategorisini sil',
   'sidebar.editCategory': '{name} kategorisini düzenle',
+  'sidebar.addShortcutToCategory': '{name} kategorisine kısayol ekle',
   'sidebar.temporary': 'Geçici',
   'sidebar.clearCategories': 'Kategorileri temizle',
   'sidebar.clearCategoriesTitle': 'Tüm kategoriler temizlensin mi?',

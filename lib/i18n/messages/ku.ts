@@ -47,6 +47,7 @@ export const ku: TranslationMap = {
   'sidebar.deleteShortcut': 'سڕینەوەی {name}',
   'sidebar.deleteCategory': 'سڕینەوەی پۆلی {name}',
   'sidebar.editCategory': 'دەستکاری پۆلی {name}',
+  'sidebar.addShortcutToCategory': 'کورتەڕێ زیاد بکە بۆ {name}',
   'sidebar.temporary': 'کاتی',
   'sidebar.clearCategories': 'پۆلەکان پاک بکەوە',
   'sidebar.clearCategoriesTitle': 'هەموو پۆلەکان پاک بکرێنەوە؟',

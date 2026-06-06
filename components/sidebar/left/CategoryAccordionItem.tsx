@@ -1,4 +1,4 @@
-import { ChevronDown, Pencil, Trash2 } from "lucide-react";
+import { ChevronDown, Pencil, Plus, Trash2 } from "lucide-react";
 import {
 	AccordionContent,
 	AccordionHeader,
@@ -57,6 +57,21 @@ export function CategoryAccordionItem({
 							{category.name}
 						</span>
 					</span>
+					<Button
+						type="button"
+						variant="ghost"
+						size="icon"
+						className="h-8 w-8 shrink-0 cursor-pointer opacity-0 group-hover/cat:opacity-100 focus-visible:opacity-100"
+						aria-label={t("sidebar.addShortcutToCategory", {
+							name: category.name,
+						})}
+						onClick={(e) => {
+							e.stopPropagation();
+							onSelectCategory(category.id);
+						}}
+					>
+						<Plus className="h-3.5 w-3.5" />
+					</Button>
 					<Button
 						type="button"
 						variant="ghost"

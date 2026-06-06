@@ -45,7 +45,7 @@ export function SnippetMenuPortal({
               key={`${item.shortcut.id}-${i}`}
               type="button"
               className={cn(
-                'grid w-full cursor-pointer grid-cols-[20px_1fr_auto_auto] gap-x-2 gap-y-0.5 rounded-md px-2.5 py-2 text-left text-sm',
+                'grid w-full cursor-pointer grid-cols-[20px_1fr_auto_auto] gap-x-2 gap-y-0.5 rounded-md px-2.5 py-2 text-start text-sm',
                 active ? 'bg-[var(--color-muted)]' : 'hover:bg-[var(--color-muted)]/60',
               )}
               onMouseEnter={() => onActiveIndexChange(i)}
@@ -54,10 +54,16 @@ export function SnippetMenuPortal({
               <span className="pt-0.5 text-[11px] text-[var(--color-muted-foreground)]">
                 {i + 1}
               </span>
-              <span className="col-start-2 font-semibold text-[var(--color-foreground)]">
+              <span
+                className="col-start-2 font-semibold text-[var(--color-foreground)]"
+                dir="auto"
+              >
                 {item.shortcut.name}
               </span>
-              <span className="font-mono text-xs text-[var(--color-muted-foreground)]">
+              <span
+                className="font-mono text-xs text-[var(--color-muted-foreground)]"
+                dir="ltr"
+              >
                 <ShortcutHighlight
                   trigger={item.trigger}
                   shortcut={item.shortcut.shortcut}
@@ -67,10 +73,14 @@ export function SnippetMenuPortal({
               <span
                 className="max-w-[80px] truncate rounded-full px-1.5 py-0.5 text-[10px] text-white"
                 style={{ background: item.category.color }}
+                dir="auto"
               >
                 {item.category.name}
               </span>
-              <span className="col-span-3 col-start-2 truncate text-[11px] text-[var(--color-muted-foreground)]">
+              <span
+                className="col-span-3 col-start-2 truncate text-[11px] text-[var(--color-muted-foreground)]"
+                dir="auto"
+              >
                 {preview}
               </span>
             </button>

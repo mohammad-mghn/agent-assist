@@ -1,4 +1,4 @@
-import { ChevronDown, Trash2 } from "lucide-react";
+import { ChevronDown, Plus, Trash2 } from "lucide-react";
 import {
 	AccordionContent,
 	AccordionHeader,
@@ -50,6 +50,21 @@ export function TempCategoryAccordion({
 					<span className="min-w-0 flex-1 truncate text-start" dir="auto">
 						{t("sidebar.temporary")} (#)
 					</span>
+					<Button
+						type="button"
+						variant="ghost"
+						size="icon"
+						className="h-8 w-8 shrink-0 cursor-pointer opacity-0 group-hover/temp:opacity-100 focus-visible:opacity-100"
+						aria-label={t("sidebar.addShortcutToCategory", {
+							name: t("sidebar.temporary"),
+						})}
+						onClick={(e) => {
+							e.stopPropagation();
+							onSelectCategory(TEMP_CATEGORY_ID);
+						}}
+					>
+						<Plus className="h-3.5 w-3.5" />
+					</Button>
 					{tempCategory && (
 						<Button
 							type="button"

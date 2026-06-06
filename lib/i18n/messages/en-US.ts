@@ -45,6 +45,7 @@ export const enUS: TranslationMap = {
   'sidebar.deleteShortcut': 'Delete {name}',
   'sidebar.deleteCategory': 'Delete category {name}',
   'sidebar.editCategory': 'Edit category {name}',
+  'sidebar.addShortcutToCategory': 'Add shortcut to {name}',
   'sidebar.temporary': 'Temporary',
   'sidebar.clearCategories': 'Clear categories',
   'sidebar.clearCategoriesTitle': 'Clear all categories?',

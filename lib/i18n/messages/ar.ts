@@ -47,6 +47,7 @@ export const ar: TranslationMap = {
   'sidebar.deleteShortcut': 'حذف {name}',
   'sidebar.deleteCategory': 'حذف الفئة {name}',
   'sidebar.editCategory': 'تعديل الفئة {name}',
+  'sidebar.addShortcutToCategory': 'إضافة اختصار إلى {name}',
   'sidebar.temporary': 'مؤقت',
   'sidebar.clearCategories': 'مسح الفئات',
   'sidebar.clearCategoriesTitle': 'مسح جميع الفئات؟',

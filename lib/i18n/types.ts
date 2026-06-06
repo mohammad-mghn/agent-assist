@@ -43,6 +43,7 @@ export type TranslationKey =
   | 'sidebar.deleteShortcut'
   | 'sidebar.deleteCategory'
   | 'sidebar.editCategory'
+  | 'sidebar.addShortcutToCategory'
   | 'sidebar.temporary'
   | 'sidebar.clearCategories'
   | 'sidebar.clearCategoriesTitle'
