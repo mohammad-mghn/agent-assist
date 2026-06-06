@@ -50,8 +50,8 @@ body {
 :root {
 	--font-sans:
 		system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-	--layout-sidebar-left: clamp(13.75rem, 17vw, 17.5rem);
-	--layout-sidebar-right: clamp(14rem, 19vw, 20rem);
+	--layout-sidebar-left: clamp(20rem, 18vw, 24rem);
+	--layout-sidebar-right: clamp(19rem, 19vw, 25rem);
 	--layout-content-max: clamp(32rem, 38vw, 42rem);
 	--layout-gutter: clamp(1rem, 2vw, 2rem);
 	--layout-header-px: clamp(1rem, 2vw, 1.5rem);
@@ -73,6 +73,10 @@ html[lang="ku"] {
 	font-family: var(--font-sans);
 }
 
+[data-sonner-toaster] {
+	--border-radius: 1.25rem;
+}
+
 html[lang="fa"] [data-sonner-toaster],
 html[lang="ar"] [data-sonner-toaster],
 html[lang="ku"] [data-sonner-toaster] {
@@ -87,7 +91,7 @@ html[lang="ku"] [data-sonner-toaster] {
 @media (min-width: 1536px) {
 	:root {
 		--layout-content-max: clamp(40rem, 34vw, 48rem);
-		--layout-sidebar-left: clamp(15rem, 16vw, 18rem);
-		--layout-sidebar-right: clamp(16rem, 18vw, 22rem);
+		--layout-sidebar-left: clamp(21.5rem, 17vw, 25rem);
+		--layout-sidebar-right: clamp(21rem, 18vw, 27rem);
 	}
 }

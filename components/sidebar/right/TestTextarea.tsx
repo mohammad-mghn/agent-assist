@@ -5,9 +5,10 @@ import type { AppData } from '@/shared/types';
 
 interface TestTextareaProps {
   data: AppData;
+  autoFocus?: boolean;
 }
 
-export function TestTextarea({ data }: TestTextareaProps) {
+export function TestTextarea({ data, autoFocus }: TestTextareaProps) {
   const { dir, locale, t } = useUiLocale();
   const {
     textareaRef,
@@ -22,7 +23,12 @@ export function TestTextarea({ data }: TestTextareaProps) {
 
   return (
     <div className="flex min-h-0 flex-1 flex-col">
-      <textarea ref={textareaRef} {...textareaProps} placeholder={t('right.testPlaceholder')} />
+      <textarea
+        ref={textareaRef}
+        {...textareaProps}
+        autoFocus={autoFocus}
+        placeholder={t('right.testPlaceholder')}
+      />
       {menuOpen && menuRect ? (
         <SnippetMenuPortal
           items={menuItems}

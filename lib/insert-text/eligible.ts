@@ -71,13 +71,13 @@ export function resolveEligibleElement(
   target: EventTarget | null,
   composedPath: EventTarget[] = [],
 ): HTMLElement | null {
-  const fromTarget = findEligibleAncestor(elementFromNode(target as Node | null));
-  if (fromTarget) return fromTarget;
-
   for (const node of composedPath) {
     const found = findEligibleAncestor(elementFromNode(node as Node | null));
     if (found) return found;
   }
+
+  const fromTarget = findEligibleAncestor(elementFromNode(target as Node | null));
+  if (fromTarget) return fromTarget;
 
   const deepActive = getDeepActiveElement();
   return findEligibleAncestor(deepActive);

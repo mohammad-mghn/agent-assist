@@ -58,7 +58,11 @@ export class SnippetDropdown {
     this.items = items.slice(0, MAX_DROPDOWN_ITEMS);
     this.activeIndex = Math.min(activeIndex, Math.max(0, this.items.length - 1));
     this.render();
-    const { left, top } = dropdownPosition(rect);
+    const { left, top } = dropdownPosition(
+      rect,
+      this.mountContainer,
+      this.panel.offsetHeight,
+    );
     this.panel.style.left = `${left}px`;
     this.panel.style.top = `${top}px`;
     this.host.style.display = 'block';

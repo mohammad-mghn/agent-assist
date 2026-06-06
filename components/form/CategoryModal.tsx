@@ -1,7 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm, Controller } from 'react-hook-form';
 import { Plus } from 'lucide-react';
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { FormField } from '@/components/form/FormField';
 import { MultilingualInput } from '@/components/form/MultilingualField';
 import { Button } from '@/components/ui/button';
@@ -15,7 +15,7 @@ import {
 import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';
 import { useUiLocale } from '@/hooks/use-ui-locale';
-import { CATEGORY_COLORS } from '@/shared/constants';
+import { CATEGORY_COLORS, randomCategoryColor } from '@/shared/constants';
 import {
   createCategoryFormSchema,
   type CategoryFormValues,
@@ -27,15 +27,20 @@ import { translations } from '@/lib/i18n/translations';
 interface CategoryModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  category?: Category | null;
   onAdd: (category: Category) => void;
+  onUpdate?: (category: Category) => void;
 }
 
 export function CategoryModal({
   open,
   onOpenChange,
+  category,
   onAdd,
+  onUpdate,
 }: CategoryModalProps) {
   const { locale, dir, t } = useUiLocale();
+  const isEditing = category != null;
   const schema = useMemo(
     () => createCategoryFormSchema(translations[locale]),
     [locale],
@@ -43,16 +48,32 @@ export function CategoryModal({
 
   const form = useForm<CategoryFormValues>({
     resolver: zodResolver(schema),
-    defaultValues: { name: '', color: CATEGORY_COLORS[0] },
+    defaultValues: { name: '', color: randomCategoryColor() },
   });
 
+  useEffect(() => {
+    if (!open) return;
+    if (category) {
+      form.reset({ name: category.name, color: category.color });
+      return;
+    }
+    form.reset({ name: '', color: randomCategoryColor() });
+  }, [open, category, form]);
+
   const onSubmit = form.handleSubmit((values) => {
-    onAdd({
-      id: generateId(),
+    const nextCategory: Category = {
+      id: category?.id ?? generateId(),
       name: values.name,
       color: values.color as Category['color'],
-    });
-    form.reset({ name: '', color: CATEGORY_COLORS[0] });
+    };
+
+    if (isEditing) {
+      onUpdate?.(nextCategory);
+    } else {
+      onAdd(nextCategory);
+    }
+
+    form.reset({ name: '', color: randomCategoryColor() });
     onOpenChange(false);
   });
 
@@ -64,7 +85,7 @@ export function CategoryModal({
         <DialogHeader>
           <div className="flex items-start justify-between gap-3">
             <DialogTitle className="flex-1 pe-2 text-start">
-              {t('category.newTitle')}
+              {isEditing ? t('category.editTitle') : t('category.newTitle')}
             </DialogTitle>
             <DialogCloseButton />
           </div>
@@ -108,8 +129,8 @@ export function CategoryModal({
             </div>
           </div>
           <Button type="submit" className="w-full gap-2">
-            <Plus className="h-4 w-4" />
-            {t('category.add')}
+            {!isEditing && <Plus className="h-4 w-4" />}
+            {isEditing ? t('category.save') : t('category.add')}
           </Button>
         </form>
       </DialogContent>

@@ -18,9 +18,11 @@ interface LeftSidebarProps {
   onEnabledChange: (enabled: boolean) => void;
   onDropdownEnabledChange: (enabled: boolean) => void;
   selectedId: string | null;
+  selectedCategoryId: string | null;
   onSelectShortcut: (shortcut: Shortcut) => void;
   onSelectCategory: (categoryId: string) => void;
   onDeleteShortcut: (shortcut: Shortcut) => void;
+  onEditCategory: (category: Category) => void;
   onDeleteCategory: (category: Category) => void;
   onClearCategories: () => void;
 }
@@ -32,9 +34,11 @@ export function LeftSidebar({
   onEnabledChange,
   onDropdownEnabledChange,
   selectedId,
+  selectedCategoryId,
   onSelectShortcut,
   onSelectCategory,
   onDeleteShortcut,
+  onEditCategory,
   onDeleteCategory,
   onClearCategories,
 }: LeftSidebarProps) {
@@ -72,6 +76,7 @@ export function LeftSidebar({
             tempCategory={tempCategory}
             shortcuts={tempShortcuts}
             selectedId={selectedId}
+            selectedCategoryId={selectedCategoryId}
             onSelectCategory={onSelectCategory}
             onSelectShortcut={onSelectShortcut}
             onDeleteCategory={onDeleteCategory}
@@ -86,8 +91,10 @@ export function LeftSidebar({
                 (s) => s.kind === 'permanent' && s.categoryId === cat.id,
               )}
               selectedId={selectedId}
+              selectedCategoryId={selectedCategoryId}
               onSelectCategory={onSelectCategory}
               onSelectShortcut={onSelectShortcut}
+              onEditCategory={onEditCategory}
               onDeleteCategory={onDeleteCategory}
               onDeleteShortcut={onDeleteShortcut}
             />

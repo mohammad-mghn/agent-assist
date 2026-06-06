@@ -4,4 +4,5 @@ export type ImportDialogState = {
   open: boolean;
   type: ShortcutKind;
   payload: unknown;
+  skippedRows?: number;
 } | null;

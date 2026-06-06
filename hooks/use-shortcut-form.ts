@@ -15,6 +15,7 @@ interface UseShortcutFormOptions {
   editing: Shortcut | null;
   kind: ShortcutKind;
   selectedCategoryId: string | null;
+  formResetKey: number;
   locale: keyof typeof translations;
   onKindChange: (kind: ShortcutKind) => void;
   duplicateMessage: string;
@@ -25,6 +26,7 @@ export function useShortcutForm({
   editing,
   kind,
   selectedCategoryId,
+  formResetKey,
   locale,
   onKindChange,
   duplicateMessage,
@@ -64,7 +66,14 @@ export function useShortcutForm({
       shortcut: '',
       kind,
     });
-  }, [editing, selectedCategoryId, kind, data.categories, form]);
+  }, [editing, kind, formResetKey, form]);
+
+  useEffect(() => {
+    if (editing || !selectedCategoryId) return;
+    if (!data.categories.some((c) => c.id === selectedCategoryId)) return;
+    if (form.getValues('categoryId') === selectedCategoryId) return;
+    form.setValue('categoryId', selectedCategoryId, { shouldDirty: true });
+  }, [data.categories, selectedCategoryId, editing, form]);
 
   const {
     formState: { errors, isDirty },

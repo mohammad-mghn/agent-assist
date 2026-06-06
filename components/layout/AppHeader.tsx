@@ -35,15 +35,9 @@ export function AppHeader({
           {t('app.title')}
         </h1>
       </div>
-      <div className="flex min-w-0 flex-wrap items-center justify-end gap-2 lg:gap-3">
-        <LanguageToggle
-          locale={locale}
-          onLocaleChange={onLocaleChange}
-          ariaLabel={t('language.ariaLabel')}
-        />
-        <ThemeToggle theme={theme} onThemeChange={onThemeChange} />
+      <div className="flex min-w-0 flex-1 flex-wrap items-center justify-end gap-2 lg:gap-3">
         <div
-          className="flex min-w-0 items-center gap-2 text-sm"
+          className="me-auto flex min-w-0 items-center gap-2 text-sm"
           title={statusLabel}
         >
           <span
@@ -54,6 +48,12 @@ export function AppHeader({
             {statusLabel}
           </span>
         </div>
+        <LanguageToggle
+          locale={locale}
+          onLocaleChange={onLocaleChange}
+          ariaLabel={t('language.ariaLabel')}
+        />
+        <ThemeToggle theme={theme} onThemeChange={onThemeChange} />
       </div>
     </header>
   );

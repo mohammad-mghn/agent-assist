@@ -10,6 +10,11 @@ export interface Category {
   color: CategoryColor;
 }
 
+export interface ExportCategory {
+  id: string;
+  name: string;
+}
+
 export interface Shortcut {
   id: string;
   name: string;
@@ -46,7 +51,7 @@ export interface SyncMeta {
 export interface PermanentExport {
   version: 1;
   type: 'permanent';
-  categories: Category[];
+  categories: ExportCategory[];
   shortcuts: Shortcut[];
 }
 

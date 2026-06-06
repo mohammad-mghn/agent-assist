@@ -6,6 +6,7 @@ interface UseSnippetTextareaEventsOptions {
   menuOpen: boolean;
   closeMenu: () => void;
   scheduleMenuUpdate: (el: HTMLTextAreaElement | null) => void;
+  onKeyDown?: (e: KeyboardEvent) => void;
 }
 
 export function useSnippetTextareaEvents({
@@ -13,6 +14,7 @@ export function useSnippetTextareaEvents({
   menuOpen,
   closeMenu,
   scheduleMenuUpdate,
+  onKeyDown,
 }: UseSnippetTextareaEventsOptions) {
   useEffect(() => {
     const el = textareaRef.current;
@@ -22,6 +24,13 @@ export function useSnippetTextareaEvents({
     el.addEventListener('input', onInput);
     return () => el.removeEventListener('input', onInput);
   }, [scheduleMenuUpdate, textareaRef]);
+
+  useEffect(() => {
+    if (!onKeyDown) return;
+
+    document.addEventListener('keydown', onKeyDown, true);
+    return () => document.removeEventListener('keydown', onKeyDown, true);
+  }, [onKeyDown]);
 
   useEffect(() => {
     const onPointerDown = (e: PointerEvent) => {

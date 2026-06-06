@@ -14,8 +14,16 @@ import type { ImportDialogState } from '@/components/sidebar/right/types';
 interface ImportOverwriteDialogProps {
   importDialog: ImportDialogState;
   onImportDialogChange: (dialog: ImportDialogState) => void;
-  onImportPermanent: (payload: unknown, overwrite: boolean) => void;
-  onImportTemp: (payload: unknown, overwrite: boolean) => void;
+  onImportPermanent: (
+    payload: unknown,
+    overwrite: boolean,
+    skippedRows?: number,
+  ) => void;
+  onImportTemp: (
+    payload: unknown,
+    overwrite: boolean,
+    skippedRows?: number,
+  ) => void;
 }
 
 export function ImportOverwriteDialog({
@@ -60,10 +68,11 @@ export function ImportOverwriteDialog({
             type="button"
             onClick={() => {
               if (!importDialog) return;
+              const skippedRows = importDialog.skippedRows ?? 0;
               if (importDialog.type === 'permanent') {
-                onImportPermanent(importDialog.payload, true);
+                onImportPermanent(importDialog.payload, true, skippedRows);
               } else {
-                onImportTemp(importDialog.payload, true);
+                onImportTemp(importDialog.payload, true, skippedRows);
               }
               onImportDialogChange(null);
             }}

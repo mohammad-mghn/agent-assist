@@ -28,6 +28,8 @@ function getTextareaCaretRect(el: HTMLTextAreaElement): DOMRect {
     'width',
     'whiteSpace',
     'wordWrap',
+    'direction',
+    'textAlign',
   ] as const) {
     div.style[prop] = style[prop];
   }
@@ -35,7 +37,11 @@ function getTextareaCaretRect(el: HTMLTextAreaElement): DOMRect {
   div.style.visibility = 'hidden';
   div.style.whiteSpace = 'pre-wrap';
   div.style.wordWrap = 'break-word';
+  div.style.overflow = 'hidden';
   div.style.width = `${el.offsetWidth}px`;
+  div.style.height = `${el.clientHeight}px`;
+  div.scrollTop = el.scrollTop;
+  div.scrollLeft = el.scrollLeft;
   const text = el.value.substring(0, pos);
   div.textContent = text;
   const span = document.createElement('span');

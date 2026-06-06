@@ -4,6 +4,7 @@ import {
   addCategory,
   deleteCategory,
   deleteShortcut,
+  updateCategory,
   upsertShortcut,
 } from '@/lib/app-mutations';
 import { clearCategoriesData } from '@/lib/storage';
@@ -61,6 +62,7 @@ export function useShortcutActions({
         setEditing(null);
       } catch {
         toast.error(t('toast.saveFailed'));
+        throw new Error('save failed');
       }
     },
     [data, persist, setEditing, t],
@@ -123,12 +125,29 @@ export function useCategoryActions({
   const handleAddCategory = useCallback(
     async (category: Category) => {
       if (!data) return;
+      setSelectedCategoryId(category.id);
       const result = addCategory(data, category);
       await persist(result.data, t('toast.categoryAdded'));
-      setSelectedCategoryId(result.category.id);
     },
     [data, persist, setSelectedCategoryId, t],
   );
 
-  return { handleDeleteCategory, handleClearCategories, handleAddCategory };
+  const handleUpdateCategory = useCallback(
+    async (category: Category) => {
+      if (!data) return;
+      const next = updateCategory(data, category.id, {
+        name: category.name,
+        color: category.color,
+      });
+      await persist(next, t('toast.categorySaved'));
+    },
+    [data, persist, t],
+  );
+
+  return {
+    handleDeleteCategory,
+    handleClearCategories,
+    handleAddCategory,
+    handleUpdateCategory,
+  };
 }

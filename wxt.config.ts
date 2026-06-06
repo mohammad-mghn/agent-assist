@@ -15,7 +15,7 @@ export default defineConfig({
   manifest: {
     name: 'Agent Assist',
     description: 'Text shortcuts with / and # triggers for textarea and contenteditable fields.',
-    permissions: ['storage', 'tabs'],
+    permissions: ['storage', 'tabs', 'downloads'],
     action: {
       default_title: 'Agent Assist — active',
       default_icon: {

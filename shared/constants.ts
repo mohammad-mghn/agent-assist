@@ -29,6 +29,10 @@ export const CATEGORY_COLORS = [
 
 export const DEFAULT_CATEGORY_COLOR = CATEGORY_COLORS[10];
 
+export function randomCategoryColor(): (typeof CATEGORY_COLORS)[number] {
+  return CATEGORY_COLORS[Math.floor(Math.random() * CATEGORY_COLORS.length)];
+}
+
 export const STORAGE_KEY_LOCAL = 'snippetAssistData';
 
 export const STORAGE_KEY_SYNC_META = 'snippetAssistSyncMeta';

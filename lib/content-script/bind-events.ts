@@ -1,3 +1,4 @@
+import { tryAdvanceJumpStopInElement } from '@/lib/jump-stop';
 import {
   handleSnippetDropdownKeydown,
   isSnippetDropdownEvent,
@@ -42,6 +43,7 @@ export function bindSnippetAssistEvents(session: SnippetAssistSession): void {
         pickIndex: (index) => ui?.pickIndex(index),
         pickActive: () => ui?.pickActive(),
         tryExactInsert: () => tryExactInsert(session, el),
+        tryJumpStopAdvance: () => tryAdvanceJumpStopInElement(el),
         onTriggerTyped: () => queueMicrotask(() => updateDropdown(session, el)),
       });
     },

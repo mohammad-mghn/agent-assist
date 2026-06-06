@@ -1,18 +1,36 @@
-import { TEMP_CATEGORY_ID } from '../shared/constants';
+import { randomCategoryColor, TEMP_CATEGORY_ID } from '../shared/constants';
 import {
   permanentExportSchema,
   tempExportSchema,
 } from '../shared/schemas';
-import type { AppData, PermanentExport, TempExport } from '../shared/types';
+import type {
+  AppData,
+  Category,
+  ExportCategory,
+  PermanentExport,
+  TempExport,
+} from '../shared/types';
+import { downloadFile } from './download-file';
 import { getPermanentShortcuts, getTempShortcuts } from './shortcut-index';
 
 export function buildPermanentExport(data: AppData): PermanentExport {
   return {
     version: 1,
     type: 'permanent',
-    categories: data.categories.filter((c) => c.id !== TEMP_CATEGORY_ID),
+    categories: data.categories
+      .filter((c) => c.id !== TEMP_CATEGORY_ID)
+      .map(({ id, name }) => ({ id, name })),
     shortcuts: getPermanentShortcuts(data),
   };
+}
+
+export function categoriesWithRandomColors(
+  categories: ExportCategory[],
+): Category[] {
+  return categories.map((category) => ({
+    ...category,
+    color: randomCategoryColor(),
+  }));
 }
 
 export function buildTempExport(data: AppData): TempExport {
@@ -23,16 +41,12 @@ export function buildTempExport(data: AppData): TempExport {
   };
 }
 
-export function downloadJson(filename: string, payload: unknown): void {
-  const blob = new Blob([JSON.stringify(payload, null, 2)], {
-    type: 'application/json',
-  });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = filename;
-  a.click();
-  URL.revokeObjectURL(url);
+export async function downloadJson(
+  filename: string,
+  payload: unknown,
+): Promise<void> {
+  const text = JSON.stringify(payload, null, 2);
+  await downloadFile(filename, text, 'application/json');
 }
 
 export async function readJsonFile(file: File): Promise<unknown> {

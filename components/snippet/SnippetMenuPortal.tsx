@@ -1,6 +1,7 @@
+import { useLayoutEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { ShortcutHighlight } from '@/components/snippet/ShortcutHighlight';
-import { dropdownPosition } from '@/lib/dropdown-position';
+import { DROPDOWN_MAX_HEIGHT, dropdownPosition } from '@/lib/dropdown-position';
 import type { DropdownItem } from '@/lib/shortcut-index';
 import { truncate, cn } from '@/lib/utils';
 import { CONTENT_TRUNCATE_LEN } from '@/shared/constants';

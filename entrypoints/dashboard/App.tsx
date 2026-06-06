@@ -11,7 +11,7 @@ import { useUiTheme } from '@/hooks/use-ui-theme';
 import { useUndoToast } from '@/hooks/use-undo-toast';
 import { setDropdownEnabled, setEnabled } from '@/lib/storage';
 import { TEMP_CATEGORY_ID } from '@/shared/constants';
-import type { Shortcut, ShortcutKind } from '@/shared/types';
+import type { Shortcut, ShortcutKind, Category } from '@/shared/types';
 
 export default function App() {
   const { theme, setUiTheme } = useUiTheme();
@@ -20,7 +20,9 @@ export default function App() {
 
   const [editing, setEditing] = useState<Shortcut | null>(null);
   const [selectedCategoryId, setSelectedCategoryId] = useState<string | null>(null);
+  const [formResetKey, setFormResetKey] = useState(0);
   const [categoryModalOpen, setCategoryModalOpen] = useState(false);
+  const [editingCategory, setEditingCategory] = useState<Category | null>(null);
   const [formKind, setFormKind] = useState<ShortcutKind>('permanent');
   const [importDialog, setImportDialog] = useState<ImportDialogState>(null);
 
@@ -34,6 +36,7 @@ export default function App() {
     handleImportTemp,
     handleClearCategories,
     handleAddCategory,
+    handleUpdateCategory,
   } = useDashboardActions({
     data,
     editing,
@@ -84,6 +87,7 @@ export default function App() {
             );
           }}
           selectedId={editing?.id ?? null}
+          selectedCategoryId={selectedCategoryId}
           onSelectShortcut={(shortcut) => {
             setEditing(shortcut);
             setFormKind(shortcut.kind);
@@ -92,8 +96,13 @@ export default function App() {
             setSelectedCategoryId(id);
             setFormKind(id === TEMP_CATEGORY_ID ? 'temp' : 'permanent');
             setEditing(null);
+            setFormResetKey((key) => key + 1);
           }}
           onDeleteShortcut={handleDeleteShortcut}
+          onEditCategory={(category) => {
+            setEditingCategory(category);
+            setCategoryModalOpen(true);
+          }}
           onDeleteCategory={handleDeleteCategory}
           onClearCategories={() => void handleClearCategories()}
         />
@@ -115,12 +124,16 @@ export default function App() {
                   }
                 }}
                 selectedCategoryId={selectedCategoryId}
+                formResetKey={formResetKey}
                 onSubmit={handleFormSubmit}
                 onCancel={() => {
                   setEditing(null);
                   setSelectedCategoryId(null);
                 }}
-                onNewCategory={() => setCategoryModalOpen(true)}
+                onNewCategory={() => {
+                  setEditingCategory(null);
+                  setCategoryModalOpen(true);
+                }}
               />
             </div>
           </main>
@@ -137,8 +150,13 @@ export default function App() {
 
       <CategoryModal
         open={categoryModalOpen}
-        onOpenChange={setCategoryModalOpen}
+        onOpenChange={(open) => {
+          setCategoryModalOpen(open);
+          if (!open) setEditingCategory(null);
+        }}
+        category={editingCategory}
         onAdd={(category) => void handleAddCategory(category)}
+        onUpdate={(category) => void handleUpdateCategory(category)}
       />
 
       <Toaster

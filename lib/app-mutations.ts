@@ -59,6 +59,19 @@ export function addCategory(
   };
 }
 
+export function updateCategory(
+  data: AppData,
+  categoryId: string,
+  updates: Pick<Category, 'name' | 'color'>,
+): AppData {
+  return {
+    ...data,
+    categories: data.categories.map((c) =>
+      c.id === categoryId ? { ...c, ...updates } : c,
+    ),
+  };
+}
+
 export function importPermanent(
   data: AppData,
   categories: Category[],

@@ -29,6 +29,7 @@ export interface SnippetDropdownKeyboardHandlers {
   pickIndex: (index: number) => void;
   pickActive: () => void;
   tryExactInsert: () => boolean;
+  tryJumpStopAdvance?: () => boolean;
   onTriggerTyped: () => void;
 }
 
@@ -84,6 +85,10 @@ export function handleSnippetDropdownKeydown(
   }
 
   if (e.key === 'Enter' || e.key === 'Tab') {
+    if (handlers.tryJumpStopAdvance?.()) {
+      e.preventDefault();
+      return;
+    }
     if (handlers.tryExactInsert()) e.preventDefault();
   }
 }

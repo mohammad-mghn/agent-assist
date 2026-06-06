@@ -21,7 +21,14 @@ function useDocumentDir(): 'ltr' | 'rtl' {
   return React.useSyncExternalStore(subscribe, getSnapshot, () => 'ltr');
 }
 
-const Select = SelectPrimitive.Root;
+function Select({
+  dir,
+  ...props
+}: React.ComponentPropsWithoutRef<typeof SelectPrimitive.Root>) {
+  const documentDir = useDocumentDir();
+  return <SelectPrimitive.Root dir={dir ?? documentDir} {...props} />;
+}
+
 const SelectValue = SelectPrimitive.Value;
 const SelectGroup = SelectPrimitive.Group;
 
@@ -37,7 +44,7 @@ const SelectTrigger = React.forwardRef<
     )}
     {...props}
   >
-    <span className="min-w-0 flex-1 truncate text-start">{children}</span>
+    <span className="flex min-w-0 flex-1 items-center truncate text-start">{children}</span>
     <SelectPrimitive.Icon asChild>
       <ChevronDown className="h-4 w-4 shrink-0 text-[var(--color-muted-foreground)]" />
     </SelectPrimitive.Icon>
@@ -48,14 +55,10 @@ SelectTrigger.displayName = SelectPrimitive.Trigger.displayName;
 const SelectContent = React.forwardRef<
   React.ComponentRef<typeof SelectPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>
->(({ className, children, position = 'popper', ...props }, ref) => {
-  const dir = useDocumentDir();
-
-  return (
+>(({ className, children, position = 'popper', ...props }, ref) => (
   <SelectPrimitive.Portal>
     <SelectPrimitive.Content
       ref={ref}
-      dir={dir}
       className={cn(
         'relative z-50 max-h-72 overflow-hidden rounded-lg border border-[var(--color-border)] bg-[var(--color-background)] text-[var(--color-foreground)] shadow-lg',
         position === 'popper' &&
@@ -70,8 +73,7 @@ const SelectContent = React.forwardRef<
       </SelectPrimitive.Viewport>
     </SelectPrimitive.Content>
   </SelectPrimitive.Portal>
-  );
-});
+));
 SelectContent.displayName = SelectPrimitive.Content.displayName;
 
 const SelectLabel = React.forwardRef<

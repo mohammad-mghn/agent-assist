@@ -10,6 +10,8 @@ import {
 } from 'react';
 import { useSnippetMenu } from '@/hooks/use-snippet-menu';
 import { useSnippetTextareaEvents } from '@/hooks/use-snippet-textarea-events';
+import { getDeepActiveElement } from '@/lib/insert-text';
+import { tryAdvanceJumpStopInElement } from '@/lib/jump-stop';
 import { handleSnippetDropdownKeydown } from '@/lib/snippet-dropdown';
 import { detectTextLang } from '@/lib/text-direction';
 import type { AppData } from '@/shared/types';
@@ -46,17 +48,12 @@ export function useSnippetTextarea({ data, dir, locale }: UseSnippetTextareaOpti
     syncValue,
   });
 
-  useSnippetTextareaEvents({
-    textareaRef,
-    menuOpen,
-    closeMenu,
-    scheduleMenuUpdate,
-  });
+  const onDocumentKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      const el = textareaRef.current;
+      if (!el || getDeepActiveElement() !== el) return;
 
-  const onKeyDown = useCallback(
-    (e: KeyboardEvent<HTMLTextAreaElement>) => {
-      const el = e.currentTarget;
-      handleSnippetDropdownKeydown(e.nativeEvent, {
+      handleSnippetDropdownKeydown(e, {
         open: menuOpen,
         itemCount: menuItems.length,
         close: closeMenu,
@@ -73,6 +70,7 @@ export function useSnippetTextarea({ data, dir, locale }: UseSnippetTextareaOpti
         pickIndex: (index) => pickItem(menuItems[index]!),
         pickActive: () => pickItem(menuItems[activeIndex]!),
         tryExactInsert: () => tryExactInsert(el),
+        tryJumpStopAdvance: () => tryAdvanceJumpStopInElement(el),
         onTriggerTyped: () => scheduleMenuUpdate(el),
       });
     },
@@ -87,6 +85,14 @@ export function useSnippetTextarea({ data, dir, locale }: UseSnippetTextareaOpti
       tryExactInsert,
     ],
   );
+
+  useSnippetTextareaEvents({
+    textareaRef,
+    menuOpen,
+    closeMenu,
+    scheduleMenuUpdate,
+    onKeyDown: onDocumentKeyDown,
+  });
 
   return {
     textareaRef,
@@ -107,7 +113,6 @@ export function useSnippetTextarea({ data, dir, locale }: UseSnippetTextareaOpti
       onClick: (e: MouseEvent<HTMLTextAreaElement>) => scheduleMenuUpdate(e.currentTarget),
       onSelect: (e: SyntheticEvent<HTMLTextAreaElement>) => scheduleMenuUpdate(e.currentTarget),
       onKeyUp: (e: KeyboardEvent<HTMLTextAreaElement>) => scheduleMenuUpdate(e.currentTarget),
-      onKeyDown,
     },
   };
 }

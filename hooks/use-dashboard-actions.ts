@@ -19,7 +19,7 @@ interface UseDashboardActionsOptions {
 
 export function useDashboardActions(options: UseDashboardActionsOptions) {
   const { handleDeleteShortcut, handleFormSubmit } = useShortcutActions(options);
-  const { handleDeleteCategory, handleClearCategories, handleAddCategory } =
+  const { handleDeleteCategory, handleClearCategories, handleAddCategory, handleUpdateCategory } =
     useCategoryActions(options);
   const { handleImportPermanent, handleImportTemp } = useImportActions(options);
 
@@ -31,5 +31,6 @@ export function useDashboardActions(options: UseDashboardActionsOptions) {
     handleImportTemp,
     handleClearCategories,
     handleAddCategory,
+    handleUpdateCategory,
   };
 }

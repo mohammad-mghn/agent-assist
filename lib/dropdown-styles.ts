@@ -28,7 +28,7 @@ export function buildDropdownStyles(theme: UiTheme): string {
 
   return `
 :host {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 0;
@@ -41,7 +41,7 @@ export function buildDropdownStyles(theme: UiTheme): string {
   line-height: 1.4;
 }
 .panel {
-  position: fixed;
+  position: absolute;
   pointer-events: auto;
   z-index: 2147483647;
   min-width: 320px;

@@ -1,3 +1,4 @@
+import { focusFirstJumpStopInElement } from '@/lib/jump-stop';
 import type { TriggerChar } from '@/shared/types';
 import { replaceContentEditableTrigger } from './contenteditable';
 import {
@@ -21,6 +22,9 @@ export function insertIntoElement(
     if (!state || state.trigger !== trigger) return false;
     const end = el.selectionStart ?? 0;
     replaceTextareaTrigger(el, state.start, end, normalized);
+    queueMicrotask(() => {
+      focusFirstJumpStopInElement(el);
+    });
     return true;
   }
 
@@ -29,6 +33,9 @@ export function insertIntoElement(
     if (!state || state.trigger !== trigger) return false;
     const token = `${trigger}${query}`;
     replaceContentEditableTrigger(el, token, normalized);
+    queueMicrotask(() => {
+      focusFirstJumpStopInElement(el);
+    });
     return true;
   }
 

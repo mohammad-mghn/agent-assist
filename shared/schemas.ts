@@ -25,6 +25,12 @@ export const categorySchema = z.object({
   color: categoryColorSchema,
 });
 
+export const exportCategorySchema = z.object({
+  id: z.string().min(1),
+  name: z.string().min(1, 'Category name is required').max(50),
+  color: categoryColorSchema.optional(),
+});
+
 export function createShortcutSchema(messages: ValidationMessages = {}) {
   return z.object({
     id: z.string().min(1),
@@ -155,7 +161,7 @@ export type CategoryFormValues = z.infer<typeof categoryFormSchema>;
 export const permanentExportSchema = z.object({
   version: z.literal(1),
   type: z.literal('permanent'),
-  categories: z.array(categorySchema),
+  categories: z.array(exportCategorySchema),
   shortcuts: z.array(shortcutSchema),
 });
 

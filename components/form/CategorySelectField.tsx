@@ -56,7 +56,9 @@ export function CategorySelectField({
                 className="h-2.5 w-2.5 shrink-0 rounded-full"
                 style={{ backgroundColor: selectedCategory.color }}
               />
-              {selectedCategory.name}
+              <span dir="auto" className="truncate">
+                {selectedCategory.name}
+              </span>
             </span>
           ) : (
             <SelectValue
@@ -75,7 +77,7 @@ export function CategorySelectField({
           >
             <span className="flex items-center gap-2">
               <FolderPlus className="h-4 w-4 shrink-0" />
-              {t('form.newCategory')}
+              <span dir="auto">{t('form.newCategory')}</span>
             </span>
           </SelectItem>
           {categories.length > 0 && <SelectSeparator />}
@@ -86,7 +88,7 @@ export function CategorySelectField({
                   className="h-2.5 w-2.5 shrink-0 rounded-full"
                   style={{ backgroundColor: c.color }}
                 />
-                {c.name}
+                <span dir="auto">{c.name}</span>
               </span>
             </SelectItem>
           ))}
