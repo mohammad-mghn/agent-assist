@@ -28,7 +28,7 @@ agent-assist/
 ├── hooks/                # React hooks
 ├── assets/               # Global styles, logo
 ├── public/               # Icons and favicons
-├── examples/             # Sample import JSON
+├── examples/             # Sample import JSON + Excel (run generate-examples.mjs)
 └── screenshots/          # README previews
 ```
 

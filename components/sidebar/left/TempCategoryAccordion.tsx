@@ -41,7 +41,7 @@ export function TempCategoryAccordion({
 				<AccordionTrigger
 					onClick={() => onSelectCategory(TEMP_CATEGORY_ID)}
 					className={cn(
-						"min-w-0",
+						"min-w-0 gap-x-0",
 						selectedCategoryId === TEMP_CATEGORY_ID &&
 							!selectedId &&
 							"bg-[var(--color-muted)]/60",

@@ -4,161 +4,81 @@
   "shortcuts": [
     {
       "id": "temp-draft",
-      "name": "Draft",
+      "name": "Draft hold",
       "shortcut": "draft",
-      "content": "[Temp] Use #draft to insert this temporary snippet.",
-      "categoryId": "temp-category",
-      "kind": "temp"
-    },
-    {
-      "id": "temp-note",
-      "name": "Note",
-      "shortcut": "note",
-      "content": "[Temp] Use #note to insert this temporary snippet.",
-      "categoryId": "temp-category",
-      "kind": "temp"
-    },
-    {
-      "id": "temp-urgent",
-      "name": "Urgent",
-      "shortcut": "urgent",
-      "content": "[Temp] Use #urgent to insert this temporary snippet.",
-      "categoryId": "temp-category",
-      "kind": "temp"
-    },
-    {
-      "id": "temp-hold",
-      "name": "Hold",
-      "shortcut": "hold",
-      "content": "[Temp] Use #hold to insert this temporary snippet.",
+      "content": "[Internal] Draft reply — do not send until reviewed.",
       "categoryId": "temp-category",
       "kind": "temp"
     },
     {
       "id": "temp-callback",
-      "name": "Callback",
+      "name": "Callback promise",
       "shortcut": "callback",
-      "content": "[Temp] Use #callback to insert this temporary snippet.",
+      "content": "I will call you back at {{phone}} within the next 2 hours.",
       "categoryId": "temp-category",
       "kind": "temp"
     },
     {
       "id": "temp-verify",
-      "name": "Verify",
+      "name": "Verify identity",
       "shortcut": "verify",
-      "content": "[Temp] Use #verify to insert this temporary snippet.",
+      "content": "For security, please confirm the last 4 digits of the phone number on your account.",
       "categoryId": "temp-category",
       "kind": "temp"
     },
     {
       "id": "temp-escalate",
-      "name": "Escalate",
+      "name": "Escalate note",
       "shortcut": "escalate",
-      "content": "[Temp] Use #escalate to insert this temporary snippet.",
+      "content": "[Internal] Escalating to Tier 2 — customer waiting since {{time}}.",
       "categoryId": "temp-category",
       "kind": "temp"
     },
     {
       "id": "temp-approve",
-      "name": "Approve",
+      "name": "Pending approval",
       "shortcut": "approve",
-      "content": "[Temp] Use #approve to insert this temporary snippet.",
-      "categoryId": "temp-category",
-      "kind": "temp"
-    },
-    {
-      "id": "temp-decline",
-      "name": "Decline",
-      "shortcut": "decline",
-      "content": "[Temp] Use #decline to insert this temporary snippet.",
-      "categoryId": "temp-category",
-      "kind": "temp"
-    },
-    {
-      "id": "temp-remind",
-      "name": "Remind",
-      "shortcut": "remind",
-      "content": "[Temp] Use #remind to insert this temporary snippet.",
-      "categoryId": "temp-category",
-      "kind": "temp"
-    },
-    {
-      "id": "temp-confirm",
-      "name": "Confirm",
-      "shortcut": "confirm",
-      "content": "[Temp] Use #confirm to insert this temporary snippet.",
-      "categoryId": "temp-category",
-      "kind": "temp"
-    },
-    {
-      "id": "temp-cancel",
-      "name": "Cancel",
-      "shortcut": "cancel",
-      "content": "[Temp] Use #cancel to insert this temporary snippet.",
-      "categoryId": "temp-category",
-      "kind": "temp"
-    },
-    {
-      "id": "temp-update",
-      "name": "Update",
-      "shortcut": "update",
-      "content": "[Temp] Use #update to insert this temporary snippet.",
-      "categoryId": "temp-category",
-      "kind": "temp"
-    },
-    {
-      "id": "temp-review",
-      "name": "Review",
-      "shortcut": "review",
-      "content": "[Temp] Use #review to insert this temporary snippet.",
-      "categoryId": "temp-category",
-      "kind": "temp"
-    },
-    {
-      "id": "temp-followup",
-      "name": "Followup",
-      "shortcut": "followup",
-      "content": "[Temp] Use #followup to insert this temporary snippet.",
-      "categoryId": "temp-category",
-      "kind": "temp"
-    },
-    {
-      "id": "temp-internal",
-      "name": "Internal",
-      "shortcut": "internal",
-      "content": "[Temp] Use #internal to insert this temporary snippet.",
-      "categoryId": "temp-category",
-      "kind": "temp"
-    },
-    {
-      "id": "temp-priority",
-      "name": "Priority",
-      "shortcut": "priority",
-      "content": "[Temp] Use #priority to insert this temporary snippet.",
+      "content": "Your request is pending manager approval. I will update you by end of day.",
       "categoryId": "temp-category",
       "kind": "temp"
     },
     {
       "id": "temp-waiting",
-      "name": "Waiting",
+      "name": "Waiting on customer",
       "shortcut": "waiting",
-      "content": "[Temp] Use #waiting to insert this temporary snippet.",
+      "content": "We are waiting on your response to proceed. Please reply when you can.",
       "categoryId": "temp-category",
       "kind": "temp"
     },
     {
       "id": "temp-resolved",
-      "name": "Resolved",
+      "name": "Marked resolved",
       "shortcut": "resolved",
-      "content": "[Temp] Use #resolved to insert this temporary snippet.",
+      "content": "This issue appears resolved. Reply to reopen if anything else comes up.",
       "categoryId": "temp-category",
       "kind": "temp"
     },
     {
-      "id": "temp-pending",
-      "name": "Pending",
-      "shortcut": "pending",
-      "content": "[Temp] Use #pending to insert this temporary snippet.",
+      "id": "temp-followup",
+      "name": "Follow-up reminder",
+      "shortcut": "followup",
+      "content": "Following up on ticket #{{ticket}} — still need help with this?",
+      "categoryId": "temp-category",
+      "kind": "temp"
+    },
+    {
+      "id": "temp-internal",
+      "name": "Internal note",
+      "shortcut": "internal",
+      "content": "[Internal] Customer sentiment: {{note}}. Next action: {{action}}.",
+      "categoryId": "temp-category",
+      "kind": "temp"
+    },
+    {
+      "id": "temp-confirm",
+      "name": "Quick confirm",
+      "shortcut": "confirm",
+      "content": "Just to confirm — you would like us to {{action}}, correct?",
       "categoryId": "temp-category",
       "kind": "temp"
     }

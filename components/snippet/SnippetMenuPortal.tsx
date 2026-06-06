@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { ShortcutHighlight } from '@/components/snippet/ShortcutHighlight';
-import { DROPDOWN_MAX_HEIGHT, dropdownPosition } from '@/lib/dropdown-position';
+import { dropdownPosition } from '@/lib/dropdown-position';
 import type { DropdownItem } from '@/lib/shortcut-index';
 import { truncate, cn } from '@/lib/utils';
 import { CONTENT_TRUNCATE_LEN } from '@/shared/constants';
@@ -23,13 +23,23 @@ export function SnippetMenuPortal({
   onPick,
   onActiveIndexChange,
 }: SnippetMenuPortalProps) {
-  const { left, top } = dropdownPosition(rect);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const [position, setPosition] = useState(() => dropdownPosition(rect));
+
+  useLayoutEffect(() => {
+    const panel = panelRef.current;
+    if (!panel) return;
+    setPosition(
+      dropdownPosition(rect, undefined, panel.offsetHeight, panel.offsetWidth),
+    );
+  }, [rect, items.length, activeIndex, emptyLabel]);
 
   return createPortal(
     <div
+      ref={panelRef}
       data-snippet-assist="dropdown"
       className="fixed z-[2147483647] min-w-[320px] max-w-[420px] max-h-[280px] overflow-y-auto rounded-lg border border-[var(--color-border)] bg-[var(--color-background)] p-1 text-[var(--color-foreground)] shadow-lg"
-      style={{ left, top }}
+      style={{ left: position.left, top: position.top }}
       onMouseDown={(e) => e.preventDefault()}
     >
       {items.length === 0 ? (

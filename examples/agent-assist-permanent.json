@@ -71,837 +71,1607 @@
       "id": "cat-compliance",
       "name": "Compliance",
       "color": "#a855f7"
-    },
-    {
-      "id": "cat-internal",
-      "name": "Internal",
-      "color": "#d946ef"
-    },
-    {
-      "id": "cat-product",
-      "name": "Product",
-      "color": "#ec4899"
-    },
-    {
-      "id": "cat-marketing",
-      "name": "Marketing",
-      "color": "#f43f5e"
-    },
-    {
-      "id": "cat-legal",
-      "name": "Legal",
-      "color": "#78716c"
-    },
-    {
-      "id": "cat-hr",
-      "name": "HR",
-      "color": "#ef4444"
-    },
-    {
-      "id": "cat-miscellaneous",
-      "name": "Miscellaneous",
-      "color": "#f97316"
     }
   ],
   "shortcuts": [
     {
-      "id": "perm-greetings-alpha",
-      "name": "Greetings Alpha",
-      "shortcut": "greetings-alpha",
-      "content": "[Greetings] Sample snippet content for /greetings-alpha. Replace with your own text.",
+      "id": "perm-greetings-welcome",
+      "name": "Welcome",
+      "shortcut": "welcome",
+      "content": "Hi {{name}}, thanks for reaching out! How can I help you today?",
       "categoryId": "cat-greetings",
       "kind": "permanent"
     },
     {
-      "id": "perm-greetings-beta",
-      "name": "Greetings Beta",
-      "shortcut": "greetings-beta",
-      "content": "[Greetings] Sample snippet content for /greetings-beta. Replace with your own text.",
+      "id": "perm-greetings-hello",
+      "name": "Hello",
+      "shortcut": "hello",
+      "content": "Hello! I am happy to assist you with your request.",
       "categoryId": "cat-greetings",
       "kind": "permanent"
     },
     {
-      "id": "perm-greetings-gamma",
-      "name": "Greetings Gamma",
-      "shortcut": "greetings-gamma",
-      "content": "[Greetings] Sample snippet content for /greetings-gamma. Replace with your own text.",
+      "id": "perm-greetings-good-morning",
+      "name": "Good morning",
+      "shortcut": "good-morning",
+      "content": "Good morning! I hope you are having a great start to your day.",
       "categoryId": "cat-greetings",
       "kind": "permanent"
     },
     {
-      "id": "perm-greetings-delta",
-      "name": "Greetings Delta",
-      "shortcut": "greetings-delta",
-      "content": "[Greetings] Sample snippet content for /greetings-delta. Replace with your own text.",
+      "id": "perm-greetings-good-afternoon",
+      "name": "Good afternoon",
+      "shortcut": "good-afternoon",
+      "content": "Good afternoon! Thank you for contacting us.",
       "categoryId": "cat-greetings",
       "kind": "permanent"
     },
     {
-      "id": "perm-greetings-epsilon",
-      "name": "Greetings Epsilon",
-      "shortcut": "greetings-epsilon",
-      "content": "[Greetings] Sample snippet content for /greetings-epsilon. Replace with your own text.",
+      "id": "perm-greetings-thanks-reaching",
+      "name": "Thanks for reaching out",
+      "shortcut": "thanks-reaching",
+      "content": "Thank you for getting in touch. I will review your message right away.",
       "categoryId": "cat-greetings",
       "kind": "permanent"
     },
     {
-      "id": "perm-support-alpha",
-      "name": "Support Alpha",
-      "shortcut": "support-alpha",
-      "content": "[Support] Sample snippet content for /support-alpha. Replace with your own text.",
+      "id": "perm-greetings-returning",
+      "name": "Returning customer",
+      "shortcut": "returning",
+      "content": "Welcome back! It is great to hear from you again.",
+      "categoryId": "cat-greetings",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-greetings-empathy-open",
+      "name": "Empathetic open",
+      "shortcut": "empathy-open",
+      "content": "I understand how frustrating this must be, and I am here to help.",
+      "categoryId": "cat-greetings",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-greetings-ack-wait",
+      "name": "Acknowledge wait",
+      "shortcut": "ack-wait",
+      "content": "Thank you for your patience while I look into this for you.",
+      "categoryId": "cat-greetings",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-greetings-chat-greet",
+      "name": "Chat greeting",
+      "shortcut": "chat-greet",
+      "content": "Hi there! I am {{agent}} from support. What can I do for you?",
+      "categoryId": "cat-greetings",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-greetings-email-greet",
+      "name": "Email greeting",
+      "shortcut": "email-greet",
+      "content": "Dear {{name}},\n\nThank you for contacting our team.",
+      "categoryId": "cat-greetings",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-greetings-holiday",
+      "name": "Holiday greeting",
+      "shortcut": "holiday",
+      "content": "Happy holidays! I hope you are enjoying the season.",
+      "categoryId": "cat-greetings",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-greetings-weekend",
+      "name": "Weekend greeting",
+      "shortcut": "weekend",
+      "content": "Hope you are having a relaxing weekend. I will get this sorted for you.",
+      "categoryId": "cat-greetings",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-greetings-intro",
+      "name": "Introduce self",
+      "shortcut": "intro",
+      "content": "My name is {{agent}}, and I will be assisting you today.",
+      "categoryId": "cat-greetings",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-greetings-nice-meet",
+      "name": "Nice to meet",
+      "shortcut": "nice-meet",
+      "content": "It is a pleasure to connect with you today.",
+      "categoryId": "cat-greetings",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-greetings-warm-open",
+      "name": "Warm close open",
+      "shortcut": "warm-open",
+      "content": "I appreciate you taking the time to write in. Let me help.",
+      "categoryId": "cat-greetings",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-support-case-received",
+      "name": "Case received",
+      "shortcut": "case-received",
+      "content": "I have received your request and am reviewing the details now.",
       "categoryId": "cat-support",
       "kind": "permanent"
     },
     {
-      "id": "perm-support-beta",
-      "name": "Support Beta",
-      "shortcut": "support-beta",
-      "content": "[Support] Sample snippet content for /support-beta. Replace with your own text.",
+      "id": "perm-support-looking",
+      "name": "Looking into it",
+      "shortcut": "looking",
+      "content": "I am looking into this issue and will update you shortly.",
       "categoryId": "cat-support",
       "kind": "permanent"
     },
     {
-      "id": "perm-support-gamma",
-      "name": "Support Gamma",
-      "shortcut": "support-gamma",
-      "content": "[Support] Sample snippet content for /support-gamma. Replace with your own text.",
+      "id": "perm-support-need-info",
+      "name": "Need more info",
+      "shortcut": "need-info",
+      "content": "Could you share a bit more detail so I can assist you better?",
       "categoryId": "cat-support",
       "kind": "permanent"
     },
     {
-      "id": "perm-support-delta",
-      "name": "Support Delta",
-      "shortcut": "support-delta",
-      "content": "[Support] Sample snippet content for /support-delta. Replace with your own text.",
+      "id": "perm-support-screenshot",
+      "name": "Screenshot request",
+      "shortcut": "screenshot",
+      "content": "If possible, please send a screenshot of the error you are seeing.",
       "categoryId": "cat-support",
       "kind": "permanent"
     },
     {
-      "id": "perm-support-epsilon",
-      "name": "Support Epsilon",
-      "shortcut": "support-epsilon",
-      "content": "[Support] Sample snippet content for /support-epsilon. Replace with your own text.",
+      "id": "perm-support-acct-lookup",
+      "name": "Account lookup",
+      "shortcut": "acct-lookup",
+      "content": "Let me pull up your account and check the status on our end.",
       "categoryId": "cat-support",
       "kind": "permanent"
     },
     {
-      "id": "perm-sales-alpha",
-      "name": "Sales Alpha",
-      "shortcut": "sales-alpha",
-      "content": "[Sales] Sample snippet content for /sales-alpha. Replace with your own text.",
+      "id": "perm-support-ts-step1",
+      "name": "Troubleshoot step 1",
+      "shortcut": "ts-step1",
+      "content": "Please try refreshing the page and clearing your browser cache.",
+      "categoryId": "cat-support",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-support-ts-step2",
+      "name": "Troubleshoot step 2",
+      "shortcut": "ts-step2",
+      "content": "Next, log out and sign back in to reset your session.",
+      "categoryId": "cat-support",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-support-known-issue",
+      "name": "Known issue",
+      "shortcut": "known-issue",
+      "content": "This is a known issue our engineering team is actively working on.",
+      "categoryId": "cat-support",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-support-workaround",
+      "name": "Workaround",
+      "shortcut": "workaround",
+      "content": "In the meantime, here is a workaround you can use: {{steps}}",
+      "categoryId": "cat-support",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-support-offer-escalate",
+      "name": "Escalation offer",
+      "shortcut": "offer-escalate",
+      "content": "If you prefer, I can escalate this to our senior support team.",
+      "categoryId": "cat-support",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-support-priority",
+      "name": "Priority support",
+      "shortcut": "priority",
+      "content": "I have flagged your case as priority and will monitor it closely.",
+      "categoryId": "cat-support",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-support-status-update",
+      "name": "Status update",
+      "shortcut": "status-update",
+      "content": "Quick update: we are still investigating and I will follow up soon.",
+      "categoryId": "cat-support",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-support-resolution",
+      "name": "Resolution steps",
+      "shortcut": "resolution",
+      "content": "Here are the steps to resolve this: {{steps}}",
+      "categoryId": "cat-support",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-support-ticket-created",
+      "name": "Ticket created",
+      "shortcut": "ticket-created",
+      "content": "I have created ticket #{{ticket}} to track this for you.",
+      "categoryId": "cat-support",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-support-live-session",
+      "name": "Live session",
+      "shortcut": "live-session",
+      "content": "I can start a screen-share session to walk you through this step by step.",
+      "categoryId": "cat-support",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-sales-overview",
+      "name": "Product overview",
+      "shortcut": "overview",
+      "content": "Our {{product}} plan includes {{features}} at {{price}}/month.",
       "categoryId": "cat-sales",
       "kind": "permanent"
     },
     {
-      "id": "perm-sales-beta",
-      "name": "Sales Beta",
-      "shortcut": "sales-beta",
-      "content": "[Sales] Sample snippet content for /sales-beta. Replace with your own text.",
+      "id": "perm-sales-pricing",
+      "name": "Pricing quote",
+      "shortcut": "pricing",
+      "content": "Based on your needs, I recommend the {{plan}} plan at {{price}}.",
       "categoryId": "cat-sales",
       "kind": "permanent"
     },
     {
-      "id": "perm-sales-gamma",
-      "name": "Sales Gamma",
-      "shortcut": "sales-gamma",
-      "content": "[Sales] Sample snippet content for /sales-gamma. Replace with your own text.",
+      "id": "perm-sales-demo",
+      "name": "Demo offer",
+      "shortcut": "demo",
+      "content": "Would you like to schedule a quick demo to see the product in action?",
       "categoryId": "cat-sales",
       "kind": "permanent"
     },
     {
-      "id": "perm-sales-delta",
-      "name": "Sales Delta",
-      "shortcut": "sales-delta",
-      "content": "[Sales] Sample snippet content for /sales-delta. Replace with your own text.",
+      "id": "perm-sales-trial",
+      "name": "Trial offer",
+      "shortcut": "trial",
+      "content": "You can start a 14-day free trial with no credit card required.",
       "categoryId": "cat-sales",
       "kind": "permanent"
     },
     {
-      "id": "perm-sales-epsilon",
-      "name": "Sales Epsilon",
-      "shortcut": "sales-epsilon",
-      "content": "[Sales] Sample snippet content for /sales-epsilon. Replace with your own text.",
+      "id": "perm-sales-upgrade",
+      "name": "Upgrade pitch",
+      "shortcut": "upgrade",
+      "content": "Upgrading to {{plan}} would give you {{benefit}}.",
       "categoryId": "cat-sales",
       "kind": "permanent"
     },
     {
-      "id": "perm-billing-alpha",
-      "name": "Billing Alpha",
-      "shortcut": "billing-alpha",
-      "content": "[Billing] Sample snippet content for /billing-alpha. Replace with your own text.",
+      "id": "perm-sales-discount",
+      "name": "Discount offer",
+      "shortcut": "discount",
+      "content": "I can offer {{percent}}% off your first year if you sign up today.",
+      "categoryId": "cat-sales",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-sales-roi",
+      "name": "ROI summary",
+      "shortcut": "roi",
+      "content": "Teams like yours typically save {{hours}} hours per week with our tool.",
+      "categoryId": "cat-sales",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-sales-compare",
+      "name": "Competitor compare",
+      "shortcut": "compare",
+      "content": "Compared to {{competitor}}, we offer {{advantage}}.",
+      "categoryId": "cat-sales",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-sales-obj-price",
+      "name": "Objection price",
+      "shortcut": "obj-price",
+      "content": "I understand budget is a concern. Let me show the value you get.",
+      "categoryId": "cat-sales",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-sales-obj-timing",
+      "name": "Objection timing",
+      "shortcut": "obj-timing",
+      "content": "No rush — we can revisit when the timing is right for you.",
+      "categoryId": "cat-sales",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-sales-next-steps",
+      "name": "Next steps sales",
+      "shortcut": "next-steps",
+      "content": "Shall I send over a proposal with pricing and next steps?",
+      "categoryId": "cat-sales",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-sales-contract",
+      "name": "Contract send",
+      "shortcut": "contract",
+      "content": "I will send the agreement to {{email}} for your review.",
+      "categoryId": "cat-sales",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-sales-renewal",
+      "name": "Renewal reminder",
+      "shortcut": "renewal",
+      "content": "Your subscription renews on {{date}}. Would you like to discuss options?",
+      "categoryId": "cat-sales",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-sales-upsell",
+      "name": "Upsell feature",
+      "shortcut": "upsell",
+      "content": "You might also benefit from adding {{addon}} to your plan.",
+      "categoryId": "cat-sales",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-sales-close-q",
+      "name": "Closing question",
+      "shortcut": "close-q",
+      "content": "Does this plan sound like a good fit for your team?",
+      "categoryId": "cat-sales",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-billing-invoice",
+      "name": "Invoice sent",
+      "shortcut": "invoice",
+      "content": "I have sent the invoice to {{email}}. It should arrive within a few minutes.",
       "categoryId": "cat-billing",
       "kind": "permanent"
     },
     {
-      "id": "perm-billing-beta",
-      "name": "Billing Beta",
-      "shortcut": "billing-beta",
-      "content": "[Billing] Sample snippet content for /billing-beta. Replace with your own text.",
+      "id": "perm-billing-payment-ok",
+      "name": "Payment received",
+      "shortcut": "payment-ok",
+      "content": "We have received your payment. Thank you!",
       "categoryId": "cat-billing",
       "kind": "permanent"
     },
     {
-      "id": "perm-billing-gamma",
-      "name": "Billing Gamma",
-      "shortcut": "billing-gamma",
-      "content": "[Billing] Sample snippet content for /billing-gamma. Replace with your own text.",
+      "id": "perm-billing-payment-fail",
+      "name": "Payment failed",
+      "shortcut": "payment-fail",
+      "content": "Your last payment did not go through. Please update your card on file.",
       "categoryId": "cat-billing",
       "kind": "permanent"
     },
     {
-      "id": "perm-billing-delta",
-      "name": "Billing Delta",
-      "shortcut": "billing-delta",
-      "content": "[Billing] Sample snippet content for /billing-delta. Replace with your own text.",
+      "id": "perm-billing-update-card",
+      "name": "Update card",
+      "shortcut": "update-card",
+      "content": "You can update your payment method in Settings → Billing.",
       "categoryId": "cat-billing",
       "kind": "permanent"
     },
     {
-      "id": "perm-billing-epsilon",
-      "name": "Billing Epsilon",
-      "shortcut": "billing-epsilon",
-      "content": "[Billing] Sample snippet content for /billing-epsilon. Replace with your own text.",
+      "id": "perm-billing-refund-time",
+      "name": "Refund timeline",
+      "shortcut": "refund-time",
+      "content": "Refunds typically appear on your statement within 5–10 business days.",
       "categoryId": "cat-billing",
       "kind": "permanent"
     },
     {
-      "id": "perm-onboarding-alpha",
-      "name": "Onboarding Alpha",
-      "shortcut": "onboarding-alpha",
-      "content": "[Onboarding] Sample snippet content for /onboarding-alpha. Replace with your own text.",
+      "id": "perm-billing-prorate",
+      "name": "Prorated charge",
+      "shortcut": "prorate",
+      "content": "The charge is prorated based on the days remaining in your billing cycle.",
+      "categoryId": "cat-billing",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-billing-plan-change",
+      "name": "Plan change",
+      "shortcut": "plan-change",
+      "content": "Your plan will change to {{plan}} on your next billing date, {{date}}.",
+      "categoryId": "cat-billing",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-billing-cycle",
+      "name": "Billing cycle",
+      "shortcut": "cycle",
+      "content": "Your billing cycle runs from the {{day}} of each month.",
+      "categoryId": "cat-billing",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-billing-tax",
+      "name": "Tax question",
+      "shortcut": "tax",
+      "content": "Tax is calculated based on your billing address and local regulations.",
+      "categoryId": "cat-billing",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-billing-receipt",
+      "name": "Receipt request",
+      "shortcut": "receipt",
+      "content": "I have emailed your receipt to {{email}}.",
+      "categoryId": "cat-billing",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-billing-overdue",
+      "name": "Overdue notice",
+      "shortcut": "overdue",
+      "content": "Your account has an overdue balance of {{amount}}. Please settle to avoid interruption.",
+      "categoryId": "cat-billing",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-billing-po",
+      "name": "PO number",
+      "shortcut": "po",
+      "content": "Please include PO #{{po}} on your payment for proper tracking.",
+      "categoryId": "cat-billing",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-billing-wire",
+      "name": "Wire transfer",
+      "shortcut": "wire",
+      "content": "For wire transfers, use account details in the invoice attached.",
+      "categoryId": "cat-billing",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-billing-credits",
+      "name": "Credits applied",
+      "shortcut": "credits",
+      "content": "We have applied {{amount}} in account credits to your next invoice.",
+      "categoryId": "cat-billing",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-billing-duplicate",
+      "name": "Duplicate charge",
+      "shortcut": "duplicate",
+      "content": "I see a duplicate charge of {{amount}}. I am reversing it now.",
+      "categoryId": "cat-billing",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-onboarding-onboard-welcome",
+      "name": "Welcome onboard",
+      "shortcut": "onboard-welcome",
+      "content": "Welcome aboard! Here is everything you need to get started.",
       "categoryId": "cat-onboarding",
       "kind": "permanent"
     },
     {
-      "id": "perm-onboarding-beta",
-      "name": "Onboarding Beta",
-      "shortcut": "onboarding-beta",
-      "content": "[Onboarding] Sample snippet content for /onboarding-beta. Replace with your own text.",
+      "id": "perm-onboarding-setup",
+      "name": "Setup guide",
+      "shortcut": "setup",
+      "content": "Step 1: Create your account. Step 2: Invite your team. Step 3: Import data.",
       "categoryId": "cat-onboarding",
       "kind": "permanent"
     },
     {
-      "id": "perm-onboarding-gamma",
-      "name": "Onboarding Gamma",
-      "shortcut": "onboarding-gamma",
-      "content": "[Onboarding] Sample snippet content for /onboarding-gamma. Replace with your own text.",
+      "id": "perm-onboarding-invite-team",
+      "name": "Invite team",
+      "shortcut": "invite-team",
+      "content": "Go to Settings → Team to invite colleagues by email.",
       "categoryId": "cat-onboarding",
       "kind": "permanent"
     },
     {
-      "id": "perm-onboarding-delta",
-      "name": "Onboarding Delta",
-      "shortcut": "onboarding-delta",
-      "content": "[Onboarding] Sample snippet content for /onboarding-delta. Replace with your own text.",
+      "id": "perm-onboarding-first-login",
+      "name": "First login",
+      "shortcut": "first-login",
+      "content": "Use the link in your welcome email to set your password and log in.",
       "categoryId": "cat-onboarding",
       "kind": "permanent"
     },
     {
-      "id": "perm-onboarding-epsilon",
-      "name": "Onboarding Epsilon",
-      "shortcut": "onboarding-epsilon",
-      "content": "[Onboarding] Sample snippet content for /onboarding-epsilon. Replace with your own text.",
+      "id": "perm-onboarding-training",
+      "name": "Training resources",
+      "shortcut": "training",
+      "content": "Check out our Getting Started guide and video tutorials in the Help Center.",
       "categoryId": "cat-onboarding",
       "kind": "permanent"
     },
     {
-      "id": "perm-follow-ups-alpha",
-      "name": "Follow-ups Alpha",
-      "shortcut": "follow-ups-alpha",
-      "content": "[Follow-ups] Sample snippet content for /follow-ups-alpha. Replace with your own text.",
+      "id": "perm-onboarding-kickoff",
+      "name": "Kickoff call",
+      "shortcut": "kickoff",
+      "content": "Would you like to book a 30-minute kickoff call with your success manager?",
+      "categoryId": "cat-onboarding",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-onboarding-checkin-3",
+      "name": "Check-in day 3",
+      "shortcut": "checkin-3",
+      "content": "How is your setup going? Let me know if you hit any snags.",
+      "categoryId": "cat-onboarding",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-onboarding-checkin-7",
+      "name": "Check-in week 1",
+      "shortcut": "checkin-7",
+      "content": "You have been with us for a week! Any questions I can answer?",
+      "categoryId": "cat-onboarding",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-onboarding-milestone",
+      "name": "Milestone congrats",
+      "shortcut": "milestone",
+      "content": "Congrats on completing your first {{milestone}} with us!",
+      "categoryId": "cat-onboarding",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-onboarding-best-practices",
+      "name": "Best practices",
+      "shortcut": "best-practices",
+      "content": "Pro tip: {{tip}} — this saves most teams time right away.",
+      "categoryId": "cat-onboarding",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-onboarding-integration",
+      "name": "Integration setup",
+      "shortcut": "integration",
+      "content": "To connect {{tool}}, go to Integrations and follow the wizard.",
+      "categoryId": "cat-onboarding",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-onboarding-admin",
+      "name": "Admin permissions",
+      "shortcut": "admin",
+      "content": "Your admin can assign roles under Settings → Permissions.",
+      "categoryId": "cat-onboarding",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-onboarding-import",
+      "name": "Data import",
+      "shortcut": "import",
+      "content": "You can import CSV files from the Import page under Data.",
+      "categoryId": "cat-onboarding",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-onboarding-csm",
+      "name": "Success manager",
+      "shortcut": "csm",
+      "content": "Your dedicated success manager is {{name}} — reach them at {{email}}.",
+      "categoryId": "cat-onboarding",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-follow-ups-fu-24h",
+      "name": "Follow up 24h",
+      "shortcut": "fu-24h",
+      "content": "Just following up on my previous message. Do you still need help with this?",
       "categoryId": "cat-follow-ups",
       "kind": "permanent"
     },
     {
-      "id": "perm-follow-ups-beta",
-      "name": "Follow-ups Beta",
-      "shortcut": "follow-ups-beta",
-      "content": "[Follow-ups] Sample snippet content for /follow-ups-beta. Replace with your own text.",
+      "id": "perm-follow-ups-fu-48h",
+      "name": "Follow up 48h",
+      "shortcut": "fu-48h",
+      "content": "I wanted to check in again in case you missed my last note.",
       "categoryId": "cat-follow-ups",
       "kind": "permanent"
     },
     {
-      "id": "perm-follow-ups-gamma",
-      "name": "Follow-ups Gamma",
-      "shortcut": "follow-ups-gamma",
-      "content": "[Follow-ups] Sample snippet content for /follow-ups-gamma. Replace with your own text.",
+      "id": "perm-follow-ups-fu-week",
+      "name": "Follow up 1 week",
+      "shortcut": "fu-week",
+      "content": "It has been a week since we last spoke. Is this issue still affecting you?",
       "categoryId": "cat-follow-ups",
       "kind": "permanent"
     },
     {
-      "id": "perm-follow-ups-delta",
-      "name": "Follow-ups Delta",
-      "shortcut": "follow-ups-delta",
-      "content": "[Follow-ups] Sample snippet content for /follow-ups-delta. Replace with your own text.",
+      "id": "perm-follow-ups-no-response",
+      "name": "No response",
+      "shortcut": "no-response",
+      "content": "I have not heard back — please reply when you have a moment.",
       "categoryId": "cat-follow-ups",
       "kind": "permanent"
     },
     {
-      "id": "perm-follow-ups-epsilon",
-      "name": "Follow-ups Epsilon",
-      "shortcut": "follow-ups-epsilon",
-      "content": "[Follow-ups] Sample snippet content for /follow-ups-epsilon. Replace with your own text.",
+      "id": "perm-follow-ups-close-loop",
+      "name": "Closing loop",
+      "shortcut": "close-loop",
+      "content": "I will close this ticket for now. Reply anytime to reopen it.",
       "categoryId": "cat-follow-ups",
       "kind": "permanent"
     },
     {
-      "id": "perm-apologies-alpha",
-      "name": "Apologies Alpha",
-      "shortcut": "apologies-alpha",
-      "content": "[Apologies] Sample snippet content for /apologies-alpha. Replace with your own text.",
+      "id": "perm-follow-ups-promise-fu",
+      "name": "Promise follow up",
+      "shortcut": "promise-fu",
+      "content": "As promised, I am following up with an update on your case.",
+      "categoryId": "cat-follow-ups",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-follow-ups-pending-you",
+      "name": "Pending customer",
+      "shortcut": "pending-you",
+      "content": "We are waiting on your response to move forward.",
+      "categoryId": "cat-follow-ups",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-follow-ups-pending-us",
+      "name": "Pending internal",
+      "shortcut": "pending-us",
+      "content": "Our team is still working on this. I will update you by {{date}}.",
+      "categoryId": "cat-follow-ups",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-follow-ups-reminder",
+      "name": "Reminder",
+      "shortcut": "reminder",
+      "content": "Friendly reminder: {{action}} before {{deadline}}.",
+      "categoryId": "cat-follow-ups",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-follow-ups-check-sat",
+      "name": "Check satisfaction",
+      "shortcut": "check-sat",
+      "content": "Did my last reply answer your question?",
+      "categoryId": "cat-follow-ups",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-follow-ups-more-help",
+      "name": "Additional help",
+      "shortcut": "more-help",
+      "content": "Is there anything else I can help you with today?",
+      "categoryId": "cat-follow-ups",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-follow-ups-survey",
+      "name": "Survey invite",
+      "shortcut": "survey",
+      "content": "We would love your feedback — please take our 2-minute survey: {{link}}",
+      "categoryId": "cat-follow-ups",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-follow-ups-reopen",
+      "name": "Reopen offer",
+      "shortcut": "reopen",
+      "content": "If the issue returns, reply to this thread and we will reopen your case.",
+      "categoryId": "cat-follow-ups",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-follow-ups-summary",
+      "name": "Summary sent",
+      "shortcut": "summary",
+      "content": "I have sent a summary of our conversation to {{email}}.",
+      "categoryId": "cat-follow-ups",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-apologies-sorry",
+      "name": "General apology",
+      "shortcut": "sorry",
+      "content": "I sincerely apologize for the inconvenience this has caused.",
       "categoryId": "cat-apologies",
       "kind": "permanent"
     },
     {
-      "id": "perm-apologies-beta",
-      "name": "Apologies Beta",
-      "shortcut": "apologies-beta",
-      "content": "[Apologies] Sample snippet content for /apologies-beta. Replace with your own text.",
+      "id": "perm-apologies-sorry-delay",
+      "name": "Delay apology",
+      "shortcut": "sorry-delay",
+      "content": "Sorry for the delay in getting back to you.",
       "categoryId": "cat-apologies",
       "kind": "permanent"
     },
     {
-      "id": "perm-apologies-gamma",
-      "name": "Apologies Gamma",
-      "shortcut": "apologies-gamma",
-      "content": "[Apologies] Sample snippet content for /apologies-gamma. Replace with your own text.",
+      "id": "perm-apologies-sorry-error",
+      "name": "Error apology",
+      "shortcut": "sorry-error",
+      "content": "We made a mistake on our end, and I am sorry for the frustration.",
       "categoryId": "cat-apologies",
       "kind": "permanent"
     },
     {
-      "id": "perm-apologies-delta",
-      "name": "Apologies Delta",
-      "shortcut": "apologies-delta",
-      "content": "[Apologies] Sample snippet content for /apologies-delta. Replace with your own text.",
+      "id": "perm-apologies-sorry-outage",
+      "name": "Outage apology",
+      "shortcut": "sorry-outage",
+      "content": "We apologize for the service disruption you experienced.",
       "categoryId": "cat-apologies",
       "kind": "permanent"
     },
     {
-      "id": "perm-apologies-epsilon",
-      "name": "Apologies Epsilon",
-      "shortcut": "apologies-epsilon",
-      "content": "[Apologies] Sample snippet content for /apologies-epsilon. Replace with your own text.",
+      "id": "perm-apologies-sorry-billing",
+      "name": "Billing apology",
+      "shortcut": "sorry-billing",
+      "content": "I am sorry for the billing error. We are correcting it now.",
       "categoryId": "cat-apologies",
       "kind": "permanent"
     },
     {
-      "id": "perm-closings-alpha",
-      "name": "Closings Alpha",
-      "shortcut": "closings-alpha",
-      "content": "[Closings] Sample snippet content for /closings-alpha. Replace with your own text.",
+      "id": "perm-apologies-sorry-empathy",
+      "name": "Empathy sorry",
+      "shortcut": "sorry-empathy",
+      "content": "I completely understand why you are upset, and I am sorry.",
+      "categoryId": "cat-apologies",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-apologies-ownership",
+      "name": "Ownership",
+      "shortcut": "ownership",
+      "content": "This should not have happened, and I take responsibility for fixing it.",
+      "categoryId": "cat-apologies",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-apologies-compensate",
+      "name": "Compensation",
+      "shortcut": "compensate",
+      "content": "As a gesture of goodwill, we have applied {{credit}} to your account.",
+      "categoryId": "cat-apologies",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-apologies-prevent",
+      "name": "Prevent recurrence",
+      "shortcut": "prevent",
+      "content": "We have put measures in place to prevent this from happening again.",
+      "categoryId": "cat-apologies",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-apologies-sorry-escalate",
+      "name": "Escalation apology",
+      "shortcut": "sorry-escalate",
+      "content": "I am sorry you had to escalate. I will personally ensure this is resolved.",
+      "categoryId": "cat-apologies",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-apologies-sorry-callback",
+      "name": "Missed callback",
+      "shortcut": "sorry-callback",
+      "content": "I apologize for missing our scheduled callback.",
+      "categoryId": "cat-apologies",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-apologies-sorry-wrong",
+      "name": "Wrong info",
+      "shortcut": "sorry-wrong",
+      "content": "I am sorry I provided incorrect information earlier. Here is the correct answer.",
+      "categoryId": "cat-apologies",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-apologies-sorry-wait",
+      "name": "Long wait",
+      "shortcut": "sorry-wait",
+      "content": "Thank you for waiting. I apologize for the extended hold time.",
+      "categoryId": "cat-apologies",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-apologies-sorry-policy",
+      "name": "Policy exception",
+      "shortcut": "sorry-policy",
+      "content": "I am sorry our policy could not accommodate your request this time.",
+      "categoryId": "cat-apologies",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-closings-thanks-close",
+      "name": "Thank you close",
+      "shortcut": "thanks-close",
+      "content": "Thank you for contacting us. Have a wonderful day!",
       "categoryId": "cat-closings",
       "kind": "permanent"
     },
     {
-      "id": "perm-closings-beta",
-      "name": "Closings Beta",
-      "shortcut": "closings-beta",
-      "content": "[Closings] Sample snippet content for /closings-beta. Replace with your own text.",
+      "id": "perm-closings-resolved-close",
+      "name": "Resolved close",
+      "shortcut": "resolved-close",
+      "content": "Glad we could resolve this for you. Take care!",
       "categoryId": "cat-closings",
       "kind": "permanent"
     },
     {
-      "id": "perm-closings-gamma",
-      "name": "Closings Gamma",
-      "shortcut": "closings-gamma",
-      "content": "[Closings] Sample snippet content for /closings-gamma. Replace with your own text.",
+      "id": "perm-closings-further-help",
+      "name": "Further help",
+      "shortcut": "further-help",
+      "content": "If you need anything else, do not hesitate to reach out.",
       "categoryId": "cat-closings",
       "kind": "permanent"
     },
     {
-      "id": "perm-closings-delta",
-      "name": "Closings Delta",
-      "shortcut": "closings-delta",
-      "content": "[Closings] Sample snippet content for /closings-delta. Replace with your own text.",
+      "id": "perm-closings-chat-close",
+      "name": "Chat close",
+      "shortcut": "chat-close",
+      "content": "Thanks for chatting! This conversation is now closed.",
       "categoryId": "cat-closings",
       "kind": "permanent"
     },
     {
-      "id": "perm-closings-epsilon",
-      "name": "Closings Epsilon",
-      "shortcut": "closings-epsilon",
-      "content": "[Closings] Sample snippet content for /closings-epsilon. Replace with your own text.",
+      "id": "perm-closings-email-sign",
+      "name": "Email sign off",
+      "shortcut": "email-sign",
+      "content": "Best regards,\n{{agent}}\nCustomer Support",
       "categoryId": "cat-closings",
       "kind": "permanent"
     },
     {
-      "id": "perm-escalations-alpha",
-      "name": "Escalations Alpha",
-      "shortcut": "escalations-alpha",
-      "content": "[Escalations] Sample snippet content for /escalations-alpha. Replace with your own text.",
+      "id": "perm-closings-weekend-close",
+      "name": "Weekend close",
+      "shortcut": "weekend-close",
+      "content": "Have a great weekend! We are here if you need us.",
+      "categoryId": "cat-closings",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-closings-holiday-close",
+      "name": "Holiday close",
+      "shortcut": "holiday-close",
+      "content": "Happy holidays! Wishing you all the best.",
+      "categoryId": "cat-closings",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-closings-survey-close",
+      "name": "Survey close",
+      "shortcut": "survey-close",
+      "content": "Before you go — would you rate your experience today? {{link}}",
+      "categoryId": "cat-closings",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-closings-ticket-close",
+      "name": "Ticket close",
+      "shortcut": "ticket-close",
+      "content": "Your ticket #{{ticket}} has been marked resolved.",
+      "categoryId": "cat-closings",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-closings-callback-close",
+      "name": "Callback confirm",
+      "shortcut": "callback-close",
+      "content": "We will call you at {{phone}} on {{date}} at {{time}}.",
+      "categoryId": "cat-closings",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-closings-resource-close",
+      "name": "Resource link",
+      "shortcut": "resource-close",
+      "content": "Here is a helpful article for future reference: {{link}}",
+      "categoryId": "cat-closings",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-closings-handoff-close",
+      "name": "Team handoff",
+      "shortcut": "handoff-close",
+      "content": "I am handing your case to {{team}}, who will follow up shortly.",
+      "categoryId": "cat-closings",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-closings-proactive-close",
+      "name": "Proactive close",
+      "shortcut": "proactive-close",
+      "content": "I will proactively monitor this and reach out if anything changes.",
+      "categoryId": "cat-closings",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-closings-farewell",
+      "name": "Warm farewell",
+      "shortcut": "farewell",
+      "content": "It was a pleasure helping you today. All the best!",
+      "categoryId": "cat-closings",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-escalations-escalate-now",
+      "name": "Escalating now",
+      "shortcut": "escalate-now",
+      "content": "I am escalating your case to our Tier 2 team right now.",
       "categoryId": "cat-escalations",
       "kind": "permanent"
     },
     {
-      "id": "perm-escalations-beta",
-      "name": "Escalations Beta",
-      "shortcut": "escalations-beta",
-      "content": "[Escalations] Sample snippet content for /escalations-beta. Replace with your own text.",
+      "id": "perm-escalations-mgr-review",
+      "name": "Manager review",
+      "shortcut": "mgr-review",
+      "content": "I have flagged this for manager review. Expect a response within 24 hours.",
       "categoryId": "cat-escalations",
       "kind": "permanent"
     },
     {
-      "id": "perm-escalations-gamma",
-      "name": "Escalations Gamma",
-      "shortcut": "escalations-gamma",
-      "content": "[Escalations] Sample snippet content for /escalations-gamma. Replace with your own text.",
+      "id": "perm-escalations-senior-agent",
+      "name": "Senior agent",
+      "shortcut": "senior-agent",
+      "content": "A senior agent will take over your case and contact you shortly.",
       "categoryId": "cat-escalations",
       "kind": "permanent"
     },
     {
-      "id": "perm-escalations-delta",
-      "name": "Escalations Delta",
-      "shortcut": "escalations-delta",
-      "content": "[Escalations] Sample snippet content for /escalations-delta. Replace with your own text.",
+      "id": "perm-escalations-legal-review",
+      "name": "Legal review",
+      "shortcut": "legal-review",
+      "content": "This requires legal review. We will respond within 3 business days.",
       "categoryId": "cat-escalations",
       "kind": "permanent"
     },
     {
-      "id": "perm-escalations-epsilon",
-      "name": "Escalations Epsilon",
-      "shortcut": "escalations-epsilon",
-      "content": "[Escalations] Sample snippet content for /escalations-epsilon. Replace with your own text.",
+      "id": "perm-escalations-exec-escalate",
+      "name": "Executive escalation",
+      "shortcut": "exec-escalate",
+      "content": "Your concern has been forwarded to our executive team.",
       "categoryId": "cat-escalations",
       "kind": "permanent"
     },
     {
-      "id": "perm-technical-alpha",
-      "name": "Technical Alpha",
-      "shortcut": "technical-alpha",
-      "content": "[Technical] Sample snippet content for /technical-alpha. Replace with your own text.",
+      "id": "perm-escalations-urgent",
+      "name": "Urgent flag",
+      "shortcut": "urgent",
+      "content": "I have marked your case as urgent due to {{reason}}.",
+      "categoryId": "cat-escalations",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-escalations-sla-breach",
+      "name": "SLA breach",
+      "shortcut": "sla-breach",
+      "content": "I apologize — we missed our SLA. I am prioritizing your case now.",
+      "categoryId": "cat-escalations",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-escalations-third-party",
+      "name": "Third party",
+      "shortcut": "third-party",
+      "content": "We are coordinating with {{vendor}} and will update you when we hear back.",
+      "categoryId": "cat-escalations",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-escalations-incident",
+      "name": "Incident bridge",
+      "shortcut": "incident",
+      "content": "This is linked to incident #{{incident}}. Updates will be posted there.",
+      "categoryId": "cat-escalations",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-escalations-esc-summary",
+      "name": "Escalation summary",
+      "shortcut": "esc-summary",
+      "content": "Escalation summary: Issue: {{issue}}. Customer impact: {{impact}}.",
+      "categoryId": "cat-escalations",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-escalations-warm-transfer",
+      "name": "Warm transfer",
+      "shortcut": "warm-transfer",
+      "content": "I am connecting you with {{name}} who specializes in this area.",
+      "categoryId": "cat-escalations",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-escalations-esc-callback",
+      "name": "Callback scheduled",
+      "shortcut": "esc-callback",
+      "content": "A specialist will call you within {{hours}} hours.",
+      "categoryId": "cat-escalations",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-escalations-case-owner",
+      "name": "Case owner",
+      "shortcut": "case-owner",
+      "content": "{{name}} is now the owner of your case (#{{ticket}}).",
+      "categoryId": "cat-escalations",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-escalations-de-escalate",
+      "name": "De-escalation",
+      "shortcut": "de-escalate",
+      "content": "I understand your frustration. Let me see what I can do before escalating further.",
+      "categoryId": "cat-escalations",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-technical-clear-cache",
+      "name": "Clear cache",
+      "shortcut": "clear-cache",
+      "content": "Clear your browser cache: Settings → Privacy → Clear browsing data.",
       "categoryId": "cat-technical",
       "kind": "permanent"
     },
     {
-      "id": "perm-technical-beta",
-      "name": "Technical Beta",
-      "shortcut": "technical-beta",
-      "content": "[Technical] Sample snippet content for /technical-beta. Replace with your own text.",
+      "id": "perm-technical-disable-ext",
+      "name": "Disable extensions",
+      "shortcut": "disable-ext",
+      "content": "Try disabling browser extensions to rule out conflicts.",
       "categoryId": "cat-technical",
       "kind": "permanent"
     },
     {
-      "id": "perm-technical-gamma",
-      "name": "Technical Gamma",
-      "shortcut": "technical-gamma",
-      "content": "[Technical] Sample snippet content for /technical-gamma. Replace with your own text.",
+      "id": "perm-technical-incognito",
+      "name": "Incognito test",
+      "shortcut": "incognito",
+      "content": "Please test in an incognito/private window and let me know the result.",
       "categoryId": "cat-technical",
       "kind": "permanent"
     },
     {
-      "id": "perm-technical-delta",
-      "name": "Technical Delta",
-      "shortcut": "technical-delta",
-      "content": "[Technical] Sample snippet content for /technical-delta. Replace with your own text.",
+      "id": "perm-technical-browser-ver",
+      "name": "Browser version",
+      "shortcut": "browser-ver",
+      "content": "Which browser and version are you using? (e.g. Chrome 120)",
       "categoryId": "cat-technical",
       "kind": "permanent"
     },
     {
-      "id": "perm-technical-epsilon",
-      "name": "Technical Epsilon",
-      "shortcut": "technical-epsilon",
-      "content": "[Technical] Sample snippet content for /technical-epsilon. Replace with your own text.",
+      "id": "perm-technical-os-ver",
+      "name": "OS version",
+      "shortcut": "os-ver",
+      "content": "What operating system and version are you on?",
       "categoryId": "cat-technical",
       "kind": "permanent"
     },
     {
-      "id": "perm-refunds-alpha",
-      "name": "Refunds Alpha",
-      "shortcut": "refunds-alpha",
-      "content": "[Refunds] Sample snippet content for /refunds-alpha. Replace with your own text.",
+      "id": "perm-technical-error-code",
+      "name": "Error code",
+      "shortcut": "error-code",
+      "content": "What error code or message do you see? Please copy the exact text.",
+      "categoryId": "cat-technical",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-technical-logs",
+      "name": "Logs request",
+      "shortcut": "logs",
+      "content": "Please export logs from Settings → Diagnostics and attach them here.",
+      "categoryId": "cat-technical",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-technical-api-status",
+      "name": "API status",
+      "shortcut": "api-status",
+      "content": "Our API status page shows all systems operational: {{link}}",
+      "categoryId": "cat-technical",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-technical-maintenance",
+      "name": "Maintenance window",
+      "shortcut": "maintenance",
+      "content": "Scheduled maintenance is {{date}} from {{start}} to {{end}} UTC.",
+      "categoryId": "cat-technical",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-technical-version-up",
+      "name": "Version update",
+      "shortcut": "version-up",
+      "content": "Please update to version {{version}} — this fix is included.",
+      "categoryId": "cat-technical",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-technical-config",
+      "name": "Config check",
+      "shortcut": "config",
+      "content": "Verify your config file has {{setting}} set to {{value}}.",
+      "categoryId": "cat-technical",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-technical-network",
+      "name": "Network check",
+      "shortcut": "network",
+      "content": "Ensure your firewall allows traffic to {{domain}} on port 443.",
+      "categoryId": "cat-technical",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-technical-reproduce",
+      "name": "Reproduce steps",
+      "shortcut": "reproduce",
+      "content": "Can you list the exact steps to reproduce the issue?",
+      "categoryId": "cat-technical",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-technical-patch",
+      "name": "Patch deployed",
+      "shortcut": "patch",
+      "content": "We deployed a patch for this issue. Please refresh and try again.",
+      "categoryId": "cat-technical",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-refunds-refund-ok",
+      "name": "Refund approved",
+      "shortcut": "refund-ok",
+      "content": "Your refund of {{amount}} has been approved.",
       "categoryId": "cat-refunds",
       "kind": "permanent"
     },
     {
-      "id": "perm-refunds-beta",
-      "name": "Refunds Beta",
-      "shortcut": "refunds-beta",
-      "content": "[Refunds] Sample snippet content for /refunds-beta. Replace with your own text.",
+      "id": "perm-refunds-refund-deny",
+      "name": "Refund denied",
+      "shortcut": "refund-deny",
+      "content": "Unfortunately, this purchase is not eligible for a refund per our policy.",
       "categoryId": "cat-refunds",
       "kind": "permanent"
     },
     {
-      "id": "perm-refunds-gamma",
-      "name": "Refunds Gamma",
-      "shortcut": "refunds-gamma",
-      "content": "[Refunds] Sample snippet content for /refunds-gamma. Replace with your own text.",
+      "id": "perm-refunds-partial-refund",
+      "name": "Partial refund",
+      "shortcut": "partial-refund",
+      "content": "We have issued a partial refund of {{amount}}.",
       "categoryId": "cat-refunds",
       "kind": "permanent"
     },
     {
-      "id": "perm-refunds-delta",
-      "name": "Refunds Delta",
-      "shortcut": "refunds-delta",
-      "content": "[Refunds] Sample snippet content for /refunds-delta. Replace with your own text.",
+      "id": "perm-refunds-refund-process",
+      "name": "Refund processing",
+      "shortcut": "refund-process",
+      "content": "Your refund is being processed and will appear in 5–10 business days.",
       "categoryId": "cat-refunds",
       "kind": "permanent"
     },
     {
-      "id": "perm-refunds-epsilon",
-      "name": "Refunds Epsilon",
-      "shortcut": "refunds-epsilon",
-      "content": "[Refunds] Sample snippet content for /refunds-epsilon. Replace with your own text.",
+      "id": "perm-refunds-refund-reason",
+      "name": "Refund reason",
+      "shortcut": "refund-reason",
+      "content": "Could you share the reason for your refund request?",
       "categoryId": "cat-refunds",
       "kind": "permanent"
     },
     {
-      "id": "perm-scheduling-alpha",
-      "name": "Scheduling Alpha",
-      "shortcut": "scheduling-alpha",
-      "content": "[Scheduling] Sample snippet content for /scheduling-alpha. Replace with your own text.",
+      "id": "perm-refunds-refund-alt",
+      "name": "Alternative offer",
+      "shortcut": "refund-alt",
+      "content": "Before we process a refund, would a {{credit}} account credit work for you?",
+      "categoryId": "cat-refunds",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-refunds-cancel-sub",
+      "name": "Subscription cancel",
+      "shortcut": "cancel-sub",
+      "content": "Your subscription is cancelled. Refund will be prorated.",
+      "categoryId": "cat-refunds",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-refunds-chargeback",
+      "name": "Chargeback warning",
+      "shortcut": "chargeback",
+      "content": "Processing a refund now will prevent a chargeback on your account.",
+      "categoryId": "cat-refunds",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-refunds-refund-confirm",
+      "name": "Refund confirmation",
+      "shortcut": "refund-confirm",
+      "content": "Please confirm you want a refund of {{amount}} to your {{method}}.",
+      "categoryId": "cat-refunds",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-refunds-store-credit",
+      "name": "Store credit",
+      "shortcut": "store-credit",
+      "content": "We have added {{amount}} in store credit to your account instead.",
+      "categoryId": "cat-refunds",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-refunds-return-label",
+      "name": "Return label",
+      "shortcut": "return-label",
+      "content": "Your return label is attached. Ship within 14 days for a full refund.",
+      "categoryId": "cat-refunds",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-refunds-refund-escalate",
+      "name": "Refund escalation",
+      "shortcut": "refund-escalate",
+      "content": "I am escalating your refund request to our billing team.",
+      "categoryId": "cat-refunds",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-refunds-refund-policy",
+      "name": "Policy explain",
+      "shortcut": "refund-policy",
+      "content": "Our refund policy allows returns within {{days}} days of purchase.",
+      "categoryId": "cat-refunds",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-refunds-refund-ticket",
+      "name": "Refund ticket",
+      "shortcut": "refund-ticket",
+      "content": "Refund request #{{ticket}} is under review. We will email you within 48 hours.",
+      "categoryId": "cat-refunds",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-scheduling-book-meeting",
+      "name": "Book meeting",
+      "shortcut": "book-meeting",
+      "content": "Here is my calendar link to book a time: {{link}}",
       "categoryId": "cat-scheduling",
       "kind": "permanent"
     },
     {
-      "id": "perm-scheduling-beta",
-      "name": "Scheduling Beta",
-      "shortcut": "scheduling-beta",
-      "content": "[Scheduling] Sample snippet content for /scheduling-beta. Replace with your own text.",
+      "id": "perm-scheduling-confirm-time",
+      "name": "Confirm time",
+      "shortcut": "confirm-time",
+      "content": "I have you scheduled for {{date}} at {{time}} {{timezone}}.",
       "categoryId": "cat-scheduling",
       "kind": "permanent"
     },
     {
-      "id": "perm-scheduling-gamma",
-      "name": "Scheduling Gamma",
-      "shortcut": "scheduling-gamma",
-      "content": "[Scheduling] Sample snippet content for /scheduling-gamma. Replace with your own text.",
+      "id": "perm-scheduling-reschedule",
+      "name": "Reschedule",
+      "shortcut": "reschedule",
+      "content": "No problem — here is a link to pick a new time: {{link}}",
       "categoryId": "cat-scheduling",
       "kind": "permanent"
     },
     {
-      "id": "perm-scheduling-delta",
-      "name": "Scheduling Delta",
-      "shortcut": "scheduling-delta",
-      "content": "[Scheduling] Sample snippet content for /scheduling-delta. Replace with your own text.",
+      "id": "perm-scheduling-cancel-meeting",
+      "name": "Cancel meeting",
+      "shortcut": "cancel-meeting",
+      "content": "Your meeting on {{date}} has been cancelled.",
       "categoryId": "cat-scheduling",
       "kind": "permanent"
     },
     {
-      "id": "perm-scheduling-epsilon",
-      "name": "Scheduling Epsilon",
-      "shortcut": "scheduling-epsilon",
-      "content": "[Scheduling] Sample snippet content for /scheduling-epsilon. Replace with your own text.",
+      "id": "perm-scheduling-remind-24h",
+      "name": "Reminder 24h",
+      "shortcut": "remind-24h",
+      "content": "Reminder: our call is tomorrow at {{time}}. See you then!",
       "categoryId": "cat-scheduling",
       "kind": "permanent"
     },
     {
-      "id": "perm-feedback-alpha",
-      "name": "Feedback Alpha",
-      "shortcut": "feedback-alpha",
-      "content": "[Feedback] Sample snippet content for /feedback-alpha. Replace with your own text.",
+      "id": "perm-scheduling-remind-1h",
+      "name": "Reminder 1h",
+      "shortcut": "remind-1h",
+      "content": "Our meeting starts in one hour. Join here: {{link}}",
+      "categoryId": "cat-scheduling",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-scheduling-no-show",
+      "name": "No-show follow up",
+      "shortcut": "no-show",
+      "content": "We missed you at our scheduled time. Would you like to reschedule?",
+      "categoryId": "cat-scheduling",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-scheduling-timezone",
+      "name": "Timezone check",
+      "shortcut": "timezone",
+      "content": "What timezone are you in? I want to make sure we schedule correctly.",
+      "categoryId": "cat-scheduling",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-scheduling-duration",
+      "name": "Duration options",
+      "shortcut": "duration",
+      "content": "I have 15, 30, or 60-minute slots available this week.",
+      "categoryId": "cat-scheduling",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-scheduling-group-meet",
+      "name": "Group meeting",
+      "shortcut": "group-meet",
+      "content": "I will send a calendar invite to {{attendees}} for {{date}}.",
+      "categoryId": "cat-scheduling",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-scheduling-phone-callback",
+      "name": "Phone callback",
+      "shortcut": "phone-callback",
+      "content": "I will call you at {{phone}} on {{date}} between {{window}}.",
+      "categoryId": "cat-scheduling",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-scheduling-office-hours",
+      "name": "Office hours",
+      "shortcut": "office-hours",
+      "content": "Our team is available Mon–Fri, 9 AM – 6 PM {{timezone}}.",
+      "categoryId": "cat-scheduling",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-scheduling-holiday-hours",
+      "name": "Holiday hours",
+      "shortcut": "holiday-hours",
+      "content": "We have reduced hours during the holidays: {{schedule}}.",
+      "categoryId": "cat-scheduling",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-scheduling-waitlist",
+      "name": "Waitlist",
+      "shortcut": "waitlist",
+      "content": "That slot is full. I have added you to the waitlist and will notify you.",
+      "categoryId": "cat-scheduling",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-feedback-thanks-feedback",
+      "name": "Thank feedback",
+      "shortcut": "thanks-feedback",
+      "content": "Thank you for sharing your feedback — it helps us improve.",
+      "categoryId": "cat-feedback",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-feedback-feature-req",
+      "name": "Feature request",
+      "shortcut": "feature-req",
+      "content": "I have logged your feature request with our product team.",
+      "categoryId": "cat-feedback",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-feedback-bug-report",
+      "name": "Bug report",
+      "shortcut": "bug-report",
+      "content": "Thanks for reporting this bug. Engineering is investigating.",
+      "categoryId": "cat-feedback",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-feedback-nps",
+      "name": "NPS ask",
+      "shortcut": "nps",
+      "content": "On a scale of 0–10, how likely are you to recommend us?",
+      "categoryId": "cat-feedback",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-feedback-csat",
+      "name": "CSAT ask",
+      "shortcut": "csat",
+      "content": "How satisfied were you with support today? (1–5)",
+      "categoryId": "cat-feedback",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-feedback-detractor",
+      "name": "Detractor follow up",
+      "shortcut": "detractor",
+      "content": "I am sorry we missed the mark. What could we have done better?",
+      "categoryId": "cat-feedback",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-feedback-promoter",
+      "name": "Promoter thanks",
+      "shortcut": "promoter",
+      "content": "Thank you for the kind words! We really appreciate it.",
       "categoryId": "cat-feedback",
       "kind": "permanent"
     },
     {
       "id": "perm-feedback-beta",
-      "name": "Feedback Beta",
-      "shortcut": "feedback-beta",
-      "content": "[Feedback] Sample snippet content for /feedback-beta. Replace with your own text.",
+      "name": "Beta invite",
+      "shortcut": "beta",
+      "content": "Would you like early access to our beta program?",
       "categoryId": "cat-feedback",
       "kind": "permanent"
     },
     {
-      "id": "perm-feedback-gamma",
-      "name": "Feedback Gamma",
-      "shortcut": "feedback-gamma",
-      "content": "[Feedback] Sample snippet content for /feedback-gamma. Replace with your own text.",
+      "id": "perm-feedback-review-req",
+      "name": "Review request",
+      "shortcut": "review-req",
+      "content": "If you have a moment, a review on {{platform}} would mean a lot.",
       "categoryId": "cat-feedback",
       "kind": "permanent"
     },
     {
-      "id": "perm-feedback-delta",
-      "name": "Feedback Delta",
-      "shortcut": "feedback-delta",
-      "content": "[Feedback] Sample snippet content for /feedback-delta. Replace with your own text.",
+      "id": "perm-feedback-testimonial",
+      "name": "Testimonial ask",
+      "shortcut": "testimonial",
+      "content": "Would you be open to sharing a short testimonial about your experience?",
       "categoryId": "cat-feedback",
       "kind": "permanent"
     },
     {
-      "id": "perm-feedback-epsilon",
-      "name": "Feedback Epsilon",
-      "shortcut": "feedback-epsilon",
-      "content": "[Feedback] Sample snippet content for /feedback-epsilon. Replace with your own text.",
+      "id": "perm-feedback-usability",
+      "name": "Usability study",
+      "shortcut": "usability",
+      "content": "We are running a usability study — interested in a $50 gift card for 30 min?",
       "categoryId": "cat-feedback",
       "kind": "permanent"
     },
     {
-      "id": "perm-compliance-alpha",
-      "name": "Compliance Alpha",
-      "shortcut": "compliance-alpha",
-      "content": "[Compliance] Sample snippet content for /compliance-alpha. Replace with your own text.",
+      "id": "perm-feedback-changelog",
+      "name": "Changelog link",
+      "shortcut": "changelog",
+      "content": "See what is new in our latest release: {{link}}",
+      "categoryId": "cat-feedback",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-feedback-roadmap",
+      "name": "Roadmap tease",
+      "shortcut": "roadmap",
+      "content": "{{feature}} is on our roadmap for {{quarter}}. Stay tuned!",
+      "categoryId": "cat-feedback",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-feedback-feedback-close",
+      "name": "Feedback loop close",
+      "shortcut": "feedback-close",
+      "content": "Your input directly shapes our product. Thank you again.",
+      "categoryId": "cat-feedback",
+      "kind": "permanent"
+    },
+    {
+      "id": "perm-compliance-privacy",
+      "name": "Privacy policy",
+      "shortcut": "privacy",
+      "content": "Our privacy policy is available at {{link}}.",
       "categoryId": "cat-compliance",
       "kind": "permanent"
     },
     {
-      "id": "perm-compliance-beta",
-      "name": "Compliance Beta",
-      "shortcut": "compliance-beta",
-      "content": "[Compliance] Sample snippet content for /compliance-beta. Replace with your own text.",
+      "id": "perm-compliance-gdpr",
+      "name": "GDPR request",
+      "shortcut": "gdpr",
+      "content": "To exercise your GDPR rights, submit a request at {{link}}.",
       "categoryId": "cat-compliance",
       "kind": "permanent"
     },
     {
-      "id": "perm-compliance-gamma",
-      "name": "Compliance Gamma",
-      "shortcut": "compliance-gamma",
-      "content": "[Compliance] Sample snippet content for /compliance-gamma. Replace with your own text.",
+      "id": "perm-compliance-data-delete",
+      "name": "Data deletion",
+      "shortcut": "data-delete",
+      "content": "We will delete your data within 30 days per your request.",
       "categoryId": "cat-compliance",
       "kind": "permanent"
     },
     {
-      "id": "perm-compliance-delta",
-      "name": "Compliance Delta",
-      "shortcut": "compliance-delta",
-      "content": "[Compliance] Sample snippet content for /compliance-delta. Replace with your own text.",
+      "id": "perm-compliance-consent",
+      "name": "Consent confirm",
+      "shortcut": "consent",
+      "content": "Please confirm you consent to us processing your data for {{purpose}}.",
       "categoryId": "cat-compliance",
       "kind": "permanent"
     },
     {
-      "id": "perm-compliance-epsilon",
-      "name": "Compliance Epsilon",
-      "shortcut": "compliance-epsilon",
-      "content": "[Compliance] Sample snippet content for /compliance-epsilon. Replace with your own text.",
+      "id": "perm-compliance-pci",
+      "name": "PCI notice",
+      "shortcut": "pci",
+      "content": "We never store full card numbers. Payments are handled by our PCI-compliant processor.",
       "categoryId": "cat-compliance",
       "kind": "permanent"
     },
     {
-      "id": "perm-internal-alpha",
-      "name": "Internal Alpha",
-      "shortcut": "internal-alpha",
-      "content": "[Internal] Sample snippet content for /internal-alpha. Replace with your own text.",
-      "categoryId": "cat-internal",
+      "id": "perm-compliance-hipaa",
+      "name": "HIPAA notice",
+      "shortcut": "hipaa",
+      "content": "This channel is not HIPAA-compliant. Please do not share PHI here.",
+      "categoryId": "cat-compliance",
       "kind": "permanent"
     },
     {
-      "id": "perm-internal-beta",
-      "name": "Internal Beta",
-      "shortcut": "internal-beta",
-      "content": "[Internal] Sample snippet content for /internal-beta. Replace with your own text.",
-      "categoryId": "cat-internal",
+      "id": "perm-compliance-recording",
+      "name": "Recording notice",
+      "shortcut": "recording",
+      "content": "This chat may be recorded for quality and training purposes.",
+      "categoryId": "cat-compliance",
       "kind": "permanent"
     },
     {
-      "id": "perm-internal-gamma",
-      "name": "Internal Gamma",
-      "shortcut": "internal-gamma",
-      "content": "[Internal] Sample snippet content for /internal-gamma. Replace with your own text.",
-      "categoryId": "cat-internal",
+      "id": "perm-compliance-terms",
+      "name": "Terms reference",
+      "shortcut": "terms",
+      "content": "Please refer to our Terms of Service at {{link}}.",
+      "categoryId": "cat-compliance",
       "kind": "permanent"
     },
     {
-      "id": "perm-internal-delta",
-      "name": "Internal Delta",
-      "shortcut": "internal-delta",
-      "content": "[Internal] Sample snippet content for /internal-delta. Replace with your own text.",
-      "categoryId": "cat-internal",
+      "id": "perm-compliance-dpa",
+      "name": "DPA available",
+      "shortcut": "dpa",
+      "content": "Our Data Processing Agreement is available for enterprise customers.",
+      "categoryId": "cat-compliance",
       "kind": "permanent"
     },
     {
-      "id": "perm-internal-epsilon",
-      "name": "Internal Epsilon",
-      "shortcut": "internal-epsilon",
-      "content": "[Internal] Sample snippet content for /internal-epsilon. Replace with your own text.",
-      "categoryId": "cat-internal",
+      "id": "perm-compliance-audit-log",
+      "name": "Audit log",
+      "shortcut": "audit-log",
+      "content": "I can provide an audit log of account activity for the past {{days}} days.",
+      "categoryId": "cat-compliance",
       "kind": "permanent"
     },
     {
-      "id": "perm-product-alpha",
-      "name": "Product Alpha",
-      "shortcut": "product-alpha",
-      "content": "[Product] Sample snippet content for /product-alpha. Replace with your own text.",
-      "categoryId": "cat-product",
+      "id": "perm-compliance-retention",
+      "name": "Retention policy",
+      "shortcut": "retention",
+      "content": "We retain data for {{period}} per our data retention policy.",
+      "categoryId": "cat-compliance",
       "kind": "permanent"
     },
     {
-      "id": "perm-product-beta",
-      "name": "Product Beta",
-      "shortcut": "product-beta",
-      "content": "[Product] Sample snippet content for /product-beta. Replace with your own text.",
-      "categoryId": "cat-product",
+      "id": "perm-compliance-subprocessors",
+      "name": "Subprocessor list",
+      "shortcut": "subprocessors",
+      "content": "Our current subprocessor list is published at {{link}}.",
+      "categoryId": "cat-compliance",
       "kind": "permanent"
     },
     {
-      "id": "perm-product-gamma",
-      "name": "Product Gamma",
-      "shortcut": "product-gamma",
-      "content": "[Product] Sample snippet content for /product-gamma. Replace with your own text.",
-      "categoryId": "cat-product",
+      "id": "perm-compliance-compliance-contact",
+      "name": "Compliance contact",
+      "shortcut": "compliance-contact",
+      "content": "For compliance inquiries, email {{email}}.",
+      "categoryId": "cat-compliance",
       "kind": "permanent"
     },
     {
-      "id": "perm-product-delta",
-      "name": "Product Delta",
-      "shortcut": "product-delta",
-      "content": "[Product] Sample snippet content for /product-delta. Replace with your own text.",
-      "categoryId": "cat-product",
-      "kind": "permanent"
-    },
-    {
-      "id": "perm-product-epsilon",
-      "name": "Product Epsilon",
-      "shortcut": "product-epsilon",
-      "content": "[Product] Sample snippet content for /product-epsilon. Replace with your own text.",
-      "categoryId": "cat-product",
-      "kind": "permanent"
-    },
-    {
-      "id": "perm-marketing-alpha",
-      "name": "Marketing Alpha",
-      "shortcut": "marketing-alpha",
-      "content": "[Marketing] Sample snippet content for /marketing-alpha. Replace with your own text.",
-      "categoryId": "cat-marketing",
-      "kind": "permanent"
-    },
-    {
-      "id": "perm-marketing-beta",
-      "name": "Marketing Beta",
-      "shortcut": "marketing-beta",
-      "content": "[Marketing] Sample snippet content for /marketing-beta. Replace with your own text.",
-      "categoryId": "cat-marketing",
-      "kind": "permanent"
-    },
-    {
-      "id": "perm-marketing-gamma",
-      "name": "Marketing Gamma",
-      "shortcut": "marketing-gamma",
-      "content": "[Marketing] Sample snippet content for /marketing-gamma. Replace with your own text.",
-      "categoryId": "cat-marketing",
-      "kind": "permanent"
-    },
-    {
-      "id": "perm-marketing-delta",
-      "name": "Marketing Delta",
-      "shortcut": "marketing-delta",
-      "content": "[Marketing] Sample snippet content for /marketing-delta. Replace with your own text.",
-      "categoryId": "cat-marketing",
-      "kind": "permanent"
-    },
-    {
-      "id": "perm-marketing-epsilon",
-      "name": "Marketing Epsilon",
-      "shortcut": "marketing-epsilon",
-      "content": "[Marketing] Sample snippet content for /marketing-epsilon. Replace with your own text.",
-      "categoryId": "cat-marketing",
-      "kind": "permanent"
-    },
-    {
-      "id": "perm-legal-alpha",
-      "name": "Legal Alpha",
-      "shortcut": "legal-alpha",
-      "content": "[Legal] Sample snippet content for /legal-alpha. Replace with your own text.",
-      "categoryId": "cat-legal",
-      "kind": "permanent"
-    },
-    {
-      "id": "perm-legal-beta",
-      "name": "Legal Beta",
-      "shortcut": "legal-beta",
-      "content": "[Legal] Sample snippet content for /legal-beta. Replace with your own text.",
-      "categoryId": "cat-legal",
-      "kind": "permanent"
-    },
-    {
-      "id": "perm-legal-gamma",
-      "name": "Legal Gamma",
-      "shortcut": "legal-gamma",
-      "content": "[Legal] Sample snippet content for /legal-gamma. Replace with your own text.",
-      "categoryId": "cat-legal",
-      "kind": "permanent"
-    },
-    {
-      "id": "perm-legal-delta",
-      "name": "Legal Delta",
-      "shortcut": "legal-delta",
-      "content": "[Legal] Sample snippet content for /legal-delta. Replace with your own text.",
-      "categoryId": "cat-legal",
-      "kind": "permanent"
-    },
-    {
-      "id": "perm-legal-epsilon",
-      "name": "Legal Epsilon",
-      "shortcut": "legal-epsilon",
-      "content": "[Legal] Sample snippet content for /legal-epsilon. Replace with your own text.",
-      "categoryId": "cat-legal",
-      "kind": "permanent"
-    },
-    {
-      "id": "perm-hr-alpha",
-      "name": "HR Alpha",
-      "shortcut": "hr-alpha",
-      "content": "[HR] Sample snippet content for /hr-alpha. Replace with your own text.",
-      "categoryId": "cat-hr",
-      "kind": "permanent"
-    },
-    {
-      "id": "perm-hr-beta",
-      "name": "HR Beta",
-      "shortcut": "hr-beta",
-      "content": "[HR] Sample snippet content for /hr-beta. Replace with your own text.",
-      "categoryId": "cat-hr",
-      "kind": "permanent"
-    },
-    {
-      "id": "perm-hr-gamma",
-      "name": "HR Gamma",
-      "shortcut": "hr-gamma",
-      "content": "[HR] Sample snippet content for /hr-gamma. Replace with your own text.",
-      "categoryId": "cat-hr",
-      "kind": "permanent"
-    },
-    {
-      "id": "perm-hr-delta",
-      "name": "HR Delta",
-      "shortcut": "hr-delta",
-      "content": "[HR] Sample snippet content for /hr-delta. Replace with your own text.",
-      "categoryId": "cat-hr",
-      "kind": "permanent"
-    },
-    {
-      "id": "perm-hr-epsilon",
-      "name": "HR Epsilon",
-      "shortcut": "hr-epsilon",
-      "content": "[HR] Sample snippet content for /hr-epsilon. Replace with your own text.",
-      "categoryId": "cat-hr",
-      "kind": "permanent"
-    },
-    {
-      "id": "perm-miscellaneous-alpha",
-      "name": "Miscellaneous Alpha",
-      "shortcut": "miscellaneous-alpha",
-      "content": "[Miscellaneous] Sample snippet content for /miscellaneous-alpha. Replace with your own text.",
-      "categoryId": "cat-miscellaneous",
-      "kind": "permanent"
-    },
-    {
-      "id": "perm-miscellaneous-beta",
-      "name": "Miscellaneous Beta",
-      "shortcut": "miscellaneous-beta",
-      "content": "[Miscellaneous] Sample snippet content for /miscellaneous-beta. Replace with your own text.",
-      "categoryId": "cat-miscellaneous",
-      "kind": "permanent"
-    },
-    {
-      "id": "perm-miscellaneous-gamma",
-      "name": "Miscellaneous Gamma",
-      "shortcut": "miscellaneous-gamma",
-      "content": "[Miscellaneous] Sample snippet content for /miscellaneous-gamma. Replace with your own text.",
-      "categoryId": "cat-miscellaneous",
-      "kind": "permanent"
-    },
-    {
-      "id": "perm-miscellaneous-delta",
-      "name": "Miscellaneous Delta",
-      "shortcut": "miscellaneous-delta",
-      "content": "[Miscellaneous] Sample snippet content for /miscellaneous-delta. Replace with your own text.",
-      "categoryId": "cat-miscellaneous",
-      "kind": "permanent"
-    },
-    {
-      "id": "perm-miscellaneous-epsilon",
-      "name": "Miscellaneous Epsilon",
-      "shortcut": "miscellaneous-epsilon",
-      "content": "[Miscellaneous] Sample snippet content for /miscellaneous-epsilon. Replace with your own text.",
-      "categoryId": "cat-miscellaneous",
+      "id": "perm-compliance-incident-disclose",
+      "name": "Incident disclosure",
+      "shortcut": "incident-disclose",
+      "content": "We are notifying affected users per our incident response policy.",
+      "categoryId": "cat-compliance",
       "kind": "permanent"
     }
   ]

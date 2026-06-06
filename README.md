@@ -103,8 +103,12 @@ Chrome, Edge, Brave, and Opera (MV3), plus Firefox (MV2).
 
 Sample import files:
 
-- [`agent-assist-permanent.json`](examples/agent-assist-permanent.json) — categories + `/` shortcuts
-- [`agent-assist-temp.json`](examples/agent-assist-temp.json) — `#` shortcuts only
+- [`agent-assist-permanent.json`](examples/agent-assist-permanent.json) — 14 categories + 200 `/` shortcuts
+- [`agent-assist-permanent.xlsx`](examples/agent-assist-permanent.xlsx) — same permanent library in Excel format
+- [`agent-assist-temp.json`](examples/agent-assist-temp.json) — 10 `#` shortcuts
+- [`agent-assist-temp.xlsx`](examples/agent-assist-temp.xlsx) — same temp shortcuts in Excel format
+
+Regenerate from `examples/generate-examples.mjs` after editing templates.
 
 ### Toolbar icon
 

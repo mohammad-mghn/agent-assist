@@ -62,6 +62,7 @@ export class SnippetDropdown {
       rect,
       this.mountContainer,
       this.panel.offsetHeight,
+      this.panel.offsetWidth,
     );
     this.panel.style.left = `${left}px`;
     this.panel.style.top = `${top}px`;
