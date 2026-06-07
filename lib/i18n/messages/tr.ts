@@ -70,6 +70,8 @@ export const tr: TranslationMap = {
 	"right.importJson": "JSON içe aktar",
 	"right.exportExcel": "Excel dışa aktar",
 	"right.importExcel": "Excel içe aktar",
+	"right.importDropHint": "Veya dosyayı buraya sürükleyip bırakın",
+	"right.importDropActive": "İçe aktarmak için dosyayı bırakın",
 	"right.testTitle": "Yazmayı test et",
 	"right.testHint": "Burada / veya # tetikleyicilerini deneyin",
 	"right.testPlaceholder": "Kısayolları test etmek için / veya # yazın…",
@@ -109,6 +111,8 @@ export const tr: TranslationMap = {
 	"toast.invalidTempJson": "Geçersiz geçici JSON dosyası",
 	"toast.invalidPermanentExcel": "Geçersiz kalıcı Excel dosyası",
 	"toast.invalidTempExcel": "Geçersiz geçici Excel dosyası",
+	"toast.invalidImportFileType":
+		"Bu dosya türü seçili biçim için desteklenmiyor",
 	"toast.exportFailed": "Dışa aktarma başarısız",
 	"toast.noValidImportRows":
 		"Geçerli satır bulunamadı — kategori, kısayol ve içerik sütunlarını kontrol edin",

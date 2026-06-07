@@ -67,6 +67,8 @@ export const fa: TranslationMap = {
 	"right.importJson": "ورود JSON",
 	"right.exportExcel": "خروجی اکسل",
 	"right.importExcel": "ورود اکسل",
+	"right.importDropHint": "یا فایل را اینجا بکشید و رها کنید",
+	"right.importDropActive": "فایل را رها کنید تا وارد شود",
 	"right.testTitle": "آزمایش تایپ",
 	"right.testHint": "اینجا / یا # را امتحان کنید",
 	"right.testPlaceholder": "برای آزمایش میانبرها / یا # را تایپ کنید…",
@@ -106,6 +108,8 @@ export const fa: TranslationMap = {
 	"toast.invalidTempJson": "فایل JSON موقت نامعتبر است",
 	"toast.invalidPermanentExcel": "فایل اکسل دائمی نامعتبر است",
 	"toast.invalidTempExcel": "فایل اکسل موقت نامعتبر است",
+	"toast.invalidImportFileType":
+		"این نوع فایل برای قالب انتخاب‌شده پشتیبانی نمی‌شود",
 	"toast.exportFailed": "خروجی گرفتن ناموفق بود",
 	"toast.noValidImportRows":
 		"ردیف معتبری یافت نشد — ستون‌های دسته، میانبر و محتوا را بررسی کنید",

@@ -96,6 +96,46 @@ describe('app-mutations', () => {
       expect(next.shortcuts.filter((s) => s.kind === 'permanent')).toHaveLength(1);
       expect(next.shortcuts.some((s) => s.kind === 'temp')).toBe(true);
     });
+
+    it('suffixes duplicate imported permanent shortcuts with letters', () => {
+      const duplicates = [
+        makeShortcut({
+          id: 'sc-a',
+          name: 'First',
+          shortcut: 'reply',
+          content: 'A',
+          categoryId: 'cat-new',
+          kind: 'permanent',
+        }),
+        makeShortcut({
+          id: 'sc-b',
+          name: 'Second',
+          shortcut: 'reply',
+          content: 'B',
+          categoryId: 'cat-new',
+          kind: 'permanent',
+        }),
+      ];
+      const next = importPermanent(data, incomingCategories, duplicates, true);
+      const permanent = next.shortcuts.filter((s) => s.kind === 'permanent');
+      expect(permanent.map((s) => s.shortcut)).toEqual(['reply', 'reply-a']);
+    });
+
+    it('suffixes imported shortcuts that conflict with existing data on merge', () => {
+      const next = importPermanent(data, incomingCategories, incomingShortcuts, false);
+      const conflict = makeShortcut({
+        id: 'sc-conflict',
+        name: 'Conflict',
+        shortcut: 'reply',
+        content: 'Conflict body',
+        categoryId: 'cat-new',
+        kind: 'permanent',
+      });
+      const merged = importPermanent(next, incomingCategories, [conflict], false);
+      expect(
+        merged.shortcuts.find((s) => s.id === 'sc-conflict')?.shortcut,
+      ).toBe('reply-a');
+    });
   });
 
   describe('importTemp', () => {
@@ -122,6 +162,30 @@ describe('app-mutations', () => {
       const next = importTemp(data, incoming, true);
       expect(next.shortcuts.filter((s) => s.kind === 'temp')).toHaveLength(1);
       expect(next.shortcuts.filter((s) => s.kind === 'permanent')).toHaveLength(2);
+    });
+
+    it('suffixes duplicate imported temp shortcuts with letters', () => {
+      const duplicates = [
+        makeShortcut({
+          id: 'sc-a',
+          name: 'First',
+          shortcut: 'note',
+          content: 'A',
+          categoryId: TEMP_CATEGORY_ID,
+          kind: 'temp',
+        }),
+        makeShortcut({
+          id: 'sc-b',
+          name: 'Second',
+          shortcut: 'note',
+          content: 'B',
+          categoryId: TEMP_CATEGORY_ID,
+          kind: 'temp',
+        }),
+      ];
+      const next = importTemp(data, duplicates, true);
+      const temp = next.shortcuts.filter((s) => s.kind === 'temp');
+      expect(temp.map((s) => s.shortcut)).toEqual(['note', 'note-a']);
     });
   });
 });

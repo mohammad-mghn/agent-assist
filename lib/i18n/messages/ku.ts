@@ -69,6 +69,8 @@ export const ku: TranslationMap = {
 	"right.importJson": "هاوردەی JSON",
 	"right.exportExcel": "هەناردەی Excel",
 	"right.importExcel": "هاوردەی Excel",
+	"right.importDropHint": "یان فایلەکە بکێشە و لێرە دایبنێ",
+	"right.importDropActive": "فایلەکە دابنێ بۆ هاوردەکردن",
 	"right.testTitle": "تاقیکردنەوەی نووسین",
 	"right.testHint": "لێرە / یان # تاقی بکەوە",
 	"right.testPlaceholder": "بۆ تاقیکردن / یان # بنووسە…",
@@ -108,6 +110,8 @@ export const ku: TranslationMap = {
 	"toast.invalidTempJson": "فایلی JSONی کاتی نادروستە",
 	"toast.invalidPermanentExcel": "فایلی Excelی هەمیشەیی نادروستە",
 	"toast.invalidTempExcel": "فایلی Excelی کاتی نادروستە",
+	"toast.invalidImportFileType":
+		"ئەم جۆرە فایلە بۆ فۆرماتی هەڵبژێردراو پشتگیری ناکرێت",
 	"toast.exportFailed": "هەناردە سەرکەوتوو نەبوو",
 	"toast.noValidImportRows":
 		"هیچ ڕیزی دروست نەدۆزرایەوە — ستوونەکانی پۆل، کورتەڕێ و ناوەڕۆک بپشکنە",

@@ -45,6 +45,39 @@ describe('excel-export-import', () => {
     }
   });
 
+  it('preserves textarea newlines through excel export and import', async () => {
+    const multiline = createSampleAppData();
+    multiline.shortcuts = multiline.shortcuts.map((shortcut) =>
+      shortcut.kind === 'temp'
+        ? {
+            ...shortcut,
+            content: 'First line\nSecond line\nThird line',
+          }
+        : {
+            ...shortcut,
+            content: 'Hello,\n\nThank you for your message.',
+          },
+    );
+
+    const permanentBuffer = await buildPermanentExcel(multiline);
+    const permanentParsed = await parsePermanentExcel(permanentBuffer);
+    expect(permanentParsed.success).toBe(true);
+    if (permanentParsed.success) {
+      expect(permanentParsed.data.shortcuts[0]?.content).toBe(
+        'Hello,\n\nThank you for your message.',
+      );
+    }
+
+    const tempBuffer = await buildTempExcel(multiline);
+    const tempParsed = await parseTempExcel(tempBuffer);
+    expect(tempParsed.success).toBe(true);
+    if (tempParsed.success) {
+      expect(tempParsed.data.shortcuts[0]?.content).toBe(
+        'First line\nSecond line\nThird line',
+      );
+    }
+  });
+
   it('parses official excel templates', async () => {
     const permanent = await parsePermanentExcel(await buildPermanentExcelTemplate());
     const temp = await parseTempExcel(await buildTempExcelTemplate());
@@ -69,6 +102,18 @@ describe('excel-export-import', () => {
     expect(parsed.success).toBe(true);
     if (parsed.success) {
       expect(parsed.data.shortcuts[0]?.shortcut).toBe('note');
+    }
+  });
+
+  it('allows duplicate shortcut cells after sanitization to be resolved on import', async () => {
+    const buffer = await buildTempExcelBuffer([
+      { displayName: 'First', shortcut: 'note', content: 'Body one' },
+      { displayName: 'Second', shortcut: 'note2', content: 'Body two' },
+    ]);
+    const parsed = await parseTempExcel(buffer);
+    expect(parsed.success).toBe(true);
+    if (parsed.success) {
+      expect(parsed.data.shortcuts.map((s) => s.shortcut)).toEqual(['note', 'note']);
     }
   });
 

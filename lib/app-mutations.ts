@@ -1,5 +1,6 @@
 import { TEMP_CATEGORY_ID } from '../shared/constants';
 import type { AppData, Category, Shortcut, ShortcutKind } from '../shared/types';
+import { dedupeImportedShortcuts } from './shortcut-index';
 import { generateId } from './utils';
 
 export function upsertShortcut(
@@ -82,12 +83,19 @@ export function importPermanent(
   const tempCategory = data.categories.find((c) => c.id === TEMP_CATEGORY_ID)!;
   const incomingCategories = categories.filter((c) => c.id !== TEMP_CATEGORY_ID);
   const incomingShortcuts = shortcuts.filter((s) => s.kind === 'permanent');
+  const existingForDedupe = overwrite
+    ? data.shortcuts.filter((s) => s.kind !== 'permanent')
+    : data.shortcuts;
+  const dedupedShortcuts = dedupeImportedShortcuts(
+    incomingShortcuts,
+    existingForDedupe,
+  );
 
   if (overwrite) {
     return {
       ...data,
       categories: [tempCategory, ...incomingCategories],
-      shortcuts: [...tempShortcuts, ...incomingShortcuts],
+      shortcuts: [...tempShortcuts, ...dedupedShortcuts],
     };
   }
   return {
@@ -97,7 +105,7 @@ export function importPermanent(
       ...data.categories.filter((c) => c.id !== TEMP_CATEGORY_ID),
       ...incomingCategories,
     ],
-    shortcuts: [...data.shortcuts, ...incomingShortcuts],
+    shortcuts: [...data.shortcuts, ...dedupedShortcuts],
   };
 }
 
@@ -112,9 +120,13 @@ export function importTemp(
     kind: 'temp' as ShortcutKind,
     categoryId: TEMP_CATEGORY_ID,
   }));
+  const existingForDedupe = overwrite
+    ? data.shortcuts.filter((s) => s.kind !== 'temp')
+    : data.shortcuts;
+  const dedupedShortcuts = dedupeImportedShortcuts(normalized, existingForDedupe);
 
   if (overwrite) {
-    return { ...data, shortcuts: [...permanent, ...normalized] };
+    return { ...data, shortcuts: [...permanent, ...dedupedShortcuts] };
   }
-  return { ...data, shortcuts: [...data.shortcuts, ...normalized] };
+  return { ...data, shortcuts: [...data.shortcuts, ...dedupedShortcuts] };
 }

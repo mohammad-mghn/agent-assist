@@ -8,28 +8,38 @@ import { useUiLocale } from '@/hooks/use-ui-locale';
 interface DataExportBoxProps {
   format: ExportFormat;
   onFormatChange: (format: ExportFormat) => void;
+  accept: string;
   onDownloadPermanentTemplate: () => void;
   onDownloadTempTemplate: () => void;
   onExportPermanent: () => void;
   onImportPermanent: () => void;
+  onImportPermanentFile: (file: File) => void;
   onExportTemp: () => void;
   onImportTemp: () => void;
+  onImportTempFile: (file: File) => void;
+  onInvalidImportFile: () => void;
 }
 
 export function DataExportBox({
   format,
   onFormatChange,
+  accept,
   onDownloadPermanentTemplate,
   onDownloadTempTemplate,
   onExportPermanent,
   onImportPermanent,
+  onImportPermanentFile,
   onExportTemp,
   onImportTemp,
+  onImportTempFile,
+  onInvalidImportFile,
 }: DataExportBoxProps) {
   const { t } = useUiLocale();
   const isExcel = format === 'excel';
   const exportLabel = isExcel ? t('right.exportExcel') : t('right.exportJson');
   const importLabel = isExcel ? t('right.importExcel') : t('right.importJson');
+  const dropHint = t('right.importDropHint');
+  const dropActiveLabel = t('right.importDropActive');
 
   return (
     <div className="min-w-0 space-y-4 rounded-lg border border-[var(--color-border)] bg-[var(--color-background)] p-3 xl:p-4">
@@ -42,9 +52,14 @@ export function DataExportBox({
           templateLabel={t('right.downloadPermanentTemplate')}
           exportLabel={exportLabel}
           importLabel={importLabel}
+          dropHint={dropHint}
+          dropActiveLabel={dropActiveLabel}
+          accept={accept}
           onDownloadTemplate={onDownloadPermanentTemplate}
           onExport={onExportPermanent}
           onImport={onImportPermanent}
+          onImportFile={onImportPermanentFile}
+          onInvalidFile={onInvalidImportFile}
           nested
         />
         <DataPanel
@@ -53,9 +68,14 @@ export function DataExportBox({
           templateLabel={t('right.downloadTempTemplate')}
           exportLabel={exportLabel}
           importLabel={importLabel}
+          dropHint={dropHint}
+          dropActiveLabel={dropActiveLabel}
+          accept={accept}
           onDownloadTemplate={onDownloadTempTemplate}
           onExport={onExportTemp}
           onImport={onImportTemp}
+          onImportFile={onImportTempFile}
+          onInvalidFile={onInvalidImportFile}
           nested
         />
       </div>

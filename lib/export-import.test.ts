@@ -48,6 +48,26 @@ describe('export-import JSON', () => {
     expect(parsed.success).toBe(true);
   });
 
+  it('preserves textarea newlines through JSON export and import', () => {
+    const multiline = createSampleAppData();
+    multiline.shortcuts = multiline.shortcuts.map((shortcut) => ({
+      ...shortcut,
+      content: 'Line one\nLine two',
+    }));
+
+    const permanent = parsePermanentExport(buildPermanentExport(multiline));
+    expect(permanent.success).toBe(true);
+    if (permanent.success) {
+      expect(permanent.data.shortcuts[0]?.content).toBe('Line one\nLine two');
+    }
+
+    const temp = parseTempExport(buildTempExport(multiline));
+    expect(temp.success).toBe(true);
+    if (temp.success) {
+      expect(temp.data.shortcuts[0]?.content).toBe('Line one\nLine two');
+    }
+  });
+
   it('assigns random colors when importing export categories', () => {
     const colored = categoriesWithRandomColors([{ id: 'cat-1', name: 'Support' }]);
     expect(colored[0]?.color).toMatch(/^#[0-9a-f]{6}$/i);

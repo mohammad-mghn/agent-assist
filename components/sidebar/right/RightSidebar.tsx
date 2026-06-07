@@ -215,6 +215,11 @@ export function RightSidebar({
 	const jsonAccept = ".json,application/json";
 	const excelAccept =
 		".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+	const importAccept = format === "json" ? jsonAccept : excelAccept;
+
+	const handleInvalidImportFile = () => {
+		toast.error(t("toast.invalidImportFileType"));
+	};
 
 	return (
 		<aside
@@ -228,6 +233,7 @@ export function RightSidebar({
 			<DataExportBox
 				format={format}
 				onFormatChange={setFormat}
+				accept={importAccept}
 				onDownloadPermanentTemplate={() =>
 					void handleDownloadPermanentTemplate()
 				}
@@ -238,12 +244,15 @@ export function RightSidebar({
 						? permJsonInputRef.current?.click()
 						: permExcelInputRef.current?.click()
 				}
+				onImportPermanentFile={(file) => void handlePermImport(file)}
 				onExportTemp={() => void handleTempExport()}
 				onImportTemp={() =>
 					format === "json"
 						? tempJsonInputRef.current?.click()
 						: tempExcelInputRef.current?.click()
 				}
+				onImportTempFile={(file) => void handleTempImport(file)}
+				onInvalidImportFile={handleInvalidImportFile}
 			/>
 
 			<input

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { createSampleAppData } from '@/test/fixtures/app-data';
 import {
+  dedupeImportedShortcuts,
   filterShortcuts,
   findDuplicateShortcut,
   findExactShortcut,
@@ -8,6 +9,7 @@ import {
   getTempShortcuts,
   triggerForKind,
 } from '@/lib/shortcut-index';
+import { makeShortcut } from '@/test/fixtures/app-data';
 
 describe('shortcut-index', () => {
   const data = createSampleAppData();
@@ -51,5 +53,43 @@ describe('shortcut-index', () => {
   it('splits permanent and temp shortcut lists', () => {
     expect(getPermanentShortcuts(data)).toHaveLength(2);
     expect(getTempShortcuts(data)).toHaveLength(1);
+  });
+
+  it('dedupes imported shortcuts with letter suffixes instead of numbers', () => {
+    const incoming = [
+      makeShortcut({ id: 'a', name: 'First', shortcut: 'reply', content: 'A' }),
+      makeShortcut({ id: 'b', name: 'Second', shortcut: 'reply', content: 'B' }),
+      makeShortcut({ id: 'c', name: 'Third', shortcut: 'reply', content: 'C' }),
+    ];
+    const deduped = dedupeImportedShortcuts(incoming);
+    expect(deduped.map((s) => s.shortcut)).toEqual(['reply', 'reply-a', 'reply-b']);
+  });
+
+  it('dedupes against existing shortcuts of the same kind only', () => {
+    const existing = [
+      makeShortcut({ id: 'x', name: 'Existing', shortcut: 'reply', content: 'X' }),
+      makeShortcut({
+        id: 'y',
+        name: 'Temp reply',
+        shortcut: 'reply',
+        content: 'Y',
+        kind: 'temp',
+        categoryId: 'temp-category',
+      }),
+    ];
+    const incoming = [
+      makeShortcut({ id: 'a', name: 'Incoming', shortcut: 'reply', content: 'A' }),
+      makeShortcut({
+        id: 'b',
+        name: 'Incoming temp',
+        shortcut: 'reply',
+        content: 'B',
+        kind: 'temp',
+        categoryId: 'temp-category',
+      }),
+    ];
+    const deduped = dedupeImportedShortcuts(incoming, existing);
+    expect(deduped[0]?.shortcut).toBe('reply-a');
+    expect(deduped[1]?.shortcut).toBe('reply-a');
   });
 });

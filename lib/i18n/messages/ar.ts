@@ -67,6 +67,8 @@ export const ar: TranslationMap = {
 	"right.importJson": "استيراد JSON",
 	"right.exportExcel": "تصدير Excel",
 	"right.importExcel": "استيراد Excel",
+	"right.importDropHint": "أو اسحب الملف وأفلته هنا",
+	"right.importDropActive": "أفلت الملف للاستيراد",
 	"right.testTitle": "اختبار الكتابة",
 	"right.testHint": "جرّب / أو # هنا",
 	"right.testPlaceholder": "اكتب / أو # لاختبار الاختصارات…",
@@ -106,6 +108,8 @@ export const ar: TranslationMap = {
 	"toast.invalidTempJson": "ملف JSON مؤقت غير صالح",
 	"toast.invalidPermanentExcel": "ملف Excel دائم غير صالح",
 	"toast.invalidTempExcel": "ملف Excel مؤقت غير صالح",
+	"toast.invalidImportFileType":
+		"نوع الملف هذا غير مدعوم للتنسيق المحدد",
 	"toast.exportFailed": "فشل التصدير",
 	"toast.noValidImportRows":
 		"لم يتم العثور على صفوف صالحة — تحقق من أعمدة الفئة والاختصار والمحتوى",

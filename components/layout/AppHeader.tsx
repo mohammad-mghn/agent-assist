@@ -3,6 +3,7 @@ import { LanguageToggle } from '@/components/layout/LanguageToggle';
 import { ThemeToggle } from '@/components/layout/ThemeToggle';
 import { useUiLocale } from '@/hooks/use-ui-locale';
 import type { UiLocale, UiTheme } from '@/shared/types';
+import { version as appVersion } from '../../package.json';
 
 interface AppHeaderProps {
   extensionEnabled: boolean;
@@ -31,9 +32,14 @@ export function AppHeader({
           className="h-7 w-7 shrink-0 rounded-sm object-contain xl:h-8 xl:w-8"
           aria-hidden
         />
-        <h1 className="min-w-0 truncate text-lg font-bold tracking-tight xl:text-xl">
-          {t('app.title')}
-        </h1>
+        <div className="min-w-0">
+          <h1 className="truncate text-lg font-bold tracking-tight xl:text-xl">
+            {t('app.title')}
+          </h1>
+          <p className="text-[8px] leading-none text-[var(--color-muted-foreground)]">
+            v{appVersion}
+          </p>
+        </div>
       </div>
       <div className="flex min-w-0 flex-1 flex-wrap items-center justify-end gap-2 lg:gap-3">
         <div

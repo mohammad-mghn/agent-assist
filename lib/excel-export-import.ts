@@ -99,21 +99,33 @@ function permanentColumnsForSheet(sheet: ExcelJS.Worksheet): PermanentColumns {
   return PERM;
 }
 
-function cellText(cell: ExcelJS.Cell): string {
+function rawCellText(cell: ExcelJS.Cell): string {
   const value = cell.value;
   if (value == null) return '';
-  if (typeof value === 'string') return normalizeDisplayText(value);
+  if (typeof value === 'string') return value;
   if (typeof value === 'number' || typeof value === 'boolean') {
-    return String(value).trim();
+    return String(value);
   }
   if (typeof value === 'object' && value !== null && 'text' in value) {
-    return String((value as { text: string }).text).trim();
+    return String((value as { text: string }).text);
   }
   if (typeof value === 'object' && value !== null && 'richText' in value) {
     const rich = (value as { richText: Array<{ text: string }> }).richText;
-    return rich.map((part) => part.text).join('').trim();
+    return rich.map((part) => part.text).join('');
   }
-  return String(value).trim();
+  return String(value);
+}
+
+function cellText(cell: ExcelJS.Cell): string {
+  return normalizeDisplayText(rawCellText(cell));
+}
+
+function cellContentText(cell: ExcelJS.Cell): string {
+  return rawCellText(cell)
+    .replace(/\u00A0/g, ' ')
+    .replace(/\r\n/g, '\n')
+    .replace(/\r/g, '\n')
+    .trim();
 }
 
 function styleHeaderRow(row: ExcelJS.Row): void {
@@ -154,6 +166,7 @@ function addPermanentSheet(
   sheet.getColumn(PERM.scName).width = 20;
   sheet.getColumn(PERM.scTrigger).width = 14;
   sheet.getColumn(PERM.scContent).width = 36;
+  sheet.getColumn(PERM.scContent).alignment = { wrapText: true };
   sheet.getColumn(PERM.scCategory).width = 18;
 
   const header = sheet.getRow(1);
@@ -189,6 +202,7 @@ function addTempSheet(workbook: ExcelJS.Workbook, shortcuts: Shortcut[]): void {
   sheet.getColumn(TEMP.scName).width = 20;
   sheet.getColumn(TEMP.scTrigger).width = 14;
   sheet.getColumn(TEMP.scContent).width = 36;
+  sheet.getColumn(TEMP.scContent).alignment = { wrapText: true };
 
   const header = sheet.getRow(1);
   header.getCell(TEMP.scName).value = 'Display Name';
@@ -323,7 +337,7 @@ function readPermanentShortcuts(
     if (!name) continue;
 
     const trigger = cellText(row.getCell(columns.scTrigger));
-    const content = cellText(row.getCell(columns.scContent));
+    const content = cellContentText(row.getCell(columns.scContent));
     const categoryName = cellText(row.getCell(columns.scCategory));
 
     if (!categoryName) {
@@ -379,7 +393,7 @@ function readTempShortcuts(sheet: ExcelJS.Worksheet): {
     if (!name) continue;
 
     const trigger = cellText(row.getCell(TEMP.scTrigger));
-    const content = cellText(row.getCell(TEMP.scContent));
+    const content = cellContentText(row.getCell(TEMP.scContent));
 
     if (!trigger) {
       skippedRows.push({ row: rowIndex, reason: 'missing_shortcut' });

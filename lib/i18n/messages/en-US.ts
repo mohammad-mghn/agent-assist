@@ -66,6 +66,8 @@ export const enUS: TranslationMap = {
 	"right.importJson": "Import JSON",
 	"right.exportExcel": "Export Excel",
 	"right.importExcel": "Import Excel",
+	"right.importDropHint": "Or drag and drop a file here",
+	"right.importDropActive": "Drop file to import",
 	"right.testTitle": "Test typing",
 	"right.testHint": "Try / or # triggers here",
 	"right.testPlaceholder": "Type / or # to test shortcuts…",
@@ -105,6 +107,8 @@ export const enUS: TranslationMap = {
 	"toast.invalidTempJson": "Invalid temp JSON file",
 	"toast.invalidPermanentExcel": "Invalid permanent Excel file",
 	"toast.invalidTempExcel": "Invalid temp Excel file",
+	"toast.invalidImportFileType":
+		"That file type is not supported for the selected format",
 	"toast.exportFailed": "Export failed",
 	"toast.noValidImportRows":
 		"No valid rows found — check category, shortcut, and content columns",
