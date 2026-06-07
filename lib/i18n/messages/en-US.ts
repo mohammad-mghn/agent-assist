@@ -33,6 +33,7 @@ export const enUS: TranslationMap = {
 	"form.shortcutHint": "Type {prefix} then the shortcut in any field",
 	"form.cancel": "Cancel",
 	"form.save": "Save",
+	"form.delete": "Delete",
 	"form.addShortcut": "Add shortcut",
 	"sidebar.trigger": "Trigger",
 	"sidebar.extension": "Extension",

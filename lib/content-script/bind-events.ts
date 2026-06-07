@@ -9,22 +9,36 @@ import {
   tryExactInsert,
   updateDropdown,
 } from '@/lib/content-script/dropdown-session';
+import {
+  isSnippetAssistDocument,
+  markSnippetAssistDocument,
+  observeSnippetAssistFrames,
+} from '@/lib/content-script/frame-bridge';
 import { resolveEligibleElement, getDeepActiveElement } from '@/lib/insert-text';
 
-export function bindSnippetAssistEvents(session: SnippetAssistSession): void {
-  document.addEventListener(
-    'input',
-    (e) => {
-      const el = resolveEligibleElement(e.target, e.composedPath());
-      if (!el) return;
-      updateDropdown(session, el);
-    },
-    true,
-  );
+const EDITOR_ACTIVITY_EVENTS = ['input', 'beforeinput', 'keyup'] as const;
 
-  document.addEventListener(
+function isTypingKey(e: KeyboardEvent): boolean {
+  return e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey;
+}
+
+function bindDocumentEvents(
+  session: SnippetAssistSession,
+  root: Document | ShadowRoot,
+): void {
+  const onEditorActivity = (e: Event) => {
+    const el = resolveEligibleElement(e.target, e.composedPath());
+    if (!el) return;
+    updateDropdown(session, el);
+  };
+
+  for (const type of EDITOR_ACTIVITY_EVENTS) {
+    root.addEventListener(type, onEditorActivity, true);
+  }
+
+  root.addEventListener(
     'keydown',
-    (e) => {
+    (e: KeyboardEvent) => {
       const el = resolveEligibleElement(e.target, e.composedPath());
       if (!el) {
         if (session.open) closeDropdown(session);
@@ -46,11 +60,15 @@ export function bindSnippetAssistEvents(session: SnippetAssistSession): void {
         tryJumpStopAdvance: () => tryAdvanceJumpStopInElement(el),
         onTriggerTyped: () => queueMicrotask(() => updateDropdown(session, el)),
       });
+
+      if (isTypingKey(e)) {
+        queueMicrotask(() => updateDropdown(session, el));
+      }
     },
     true,
   );
 
-  document.addEventListener(
+  root.addEventListener(
     'click',
     (e) => {
       if (!session.open) return;
@@ -59,7 +77,7 @@ export function bindSnippetAssistEvents(session: SnippetAssistSession): void {
     true,
   );
 
-  document.addEventListener(
+  root.addEventListener(
     'scroll',
     () => {
       if (!session.open || !session.activeElement) return;
@@ -72,7 +90,7 @@ export function bindSnippetAssistEvents(session: SnippetAssistSession): void {
     true,
   );
 
-  document.addEventListener(
+  root.addEventListener(
     'focusout',
     () => {
       if (!session.open || !session.activeElement) return;
@@ -84,4 +102,15 @@ export function bindSnippetAssistEvents(session: SnippetAssistSession): void {
     },
     true,
   );
+}
+
+export function bindSnippetAssistEvents(session: SnippetAssistSession): void {
+  if (isSnippetAssistDocument(document)) return;
+
+  markSnippetAssistDocument(document);
+  bindDocumentEvents(session, document);
+
+  observeSnippetAssistFrames((doc) => {
+    bindDocumentEvents(session, doc);
+  });
 }

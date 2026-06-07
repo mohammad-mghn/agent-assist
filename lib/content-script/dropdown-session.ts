@@ -69,8 +69,8 @@ export function ensureDropdown(session: SnippetAssistSession): SnippetDropdown {
 }
 
 function getTriggerState(el: HTMLElement) {
-  return el instanceof HTMLTextAreaElement
-    ? getTextareaTrigger(el)
+  return el.tagName === 'TEXTAREA'
+    ? getTextareaTrigger(el as HTMLTextAreaElement)
     : getContentEditableTrigger(el);
 }
 

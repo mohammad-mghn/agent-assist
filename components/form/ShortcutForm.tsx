@@ -32,6 +32,7 @@ interface ShortcutFormProps {
 		editingId?: string,
 	) => void | Promise<void>;
 	onCancel: () => void;
+	onDelete?: (shortcut: Shortcut) => void;
 	onNewCategory: () => void;
 }
 
@@ -44,6 +45,7 @@ export function ShortcutForm({
 	formResetKey,
 	onSubmit,
 	onCancel,
+	onDelete,
 	onNewCategory,
 }: ShortcutFormProps) {
 	const { locale, t } = useUiLocale();
@@ -264,6 +266,14 @@ export function ShortcutForm({
 					onCancel();
 					reset();
 				}}
+				onDelete={
+					editing && onDelete
+						? () => {
+								onDelete(editing);
+								reset();
+							}
+						: undefined
+				}
 			/>
 		</form>
 	);

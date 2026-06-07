@@ -134,6 +134,7 @@ export default function App() {
 									setEditing(null);
 									setSelectedCategoryId(null);
 								}}
+								onDelete={(shortcut) => void handleDeleteShortcut(shortcut)}
 								onNewCategory={() => {
 									setEditingCategory(null);
 									setCategoryModalOpen(true);

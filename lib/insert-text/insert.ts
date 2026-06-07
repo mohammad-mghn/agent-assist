@@ -2,6 +2,7 @@ import { focusFirstJumpStopInElement } from '@/lib/jump-stop';
 import type { TriggerChar } from '@/shared/types';
 import { replaceContentEditableTrigger } from './contenteditable';
 import {
+  isContentEditableTarget,
   isMultilineElement,
   normalizeContent,
 } from './eligible';
@@ -17,18 +18,19 @@ export function insertIntoElement(
   const multiline = isMultilineElement(el);
   const normalized = normalizeContent(content, multiline);
 
-  if (el instanceof HTMLTextAreaElement) {
-    const state = getTextareaTrigger(el);
+  if (el.tagName === 'TEXTAREA') {
+    const textarea = el as HTMLTextAreaElement;
+    const state = getTextareaTrigger(textarea);
     if (!state || state.trigger !== trigger) return false;
-    const end = el.selectionStart ?? 0;
-    replaceTextareaTrigger(el, state.start, end, normalized);
+    const end = textarea.selectionStart ?? 0;
+    replaceTextareaTrigger(textarea, state.start, end, normalized);
     queueMicrotask(() => {
-      focusFirstJumpStopInElement(el);
+      focusFirstJumpStopInElement(textarea);
     });
     return true;
   }
 
-  if (el.isContentEditable) {
+  if (isContentEditableTarget(el)) {
     const state = getContentEditableTrigger(el);
     if (!state || state.trigger !== trigger) return false;
     const token = `${trigger}${query}`;

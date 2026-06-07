@@ -11,6 +11,7 @@ export function useUndoToast(
   return useCallback(
     (snapshot: AppData, label: string) => {
       toast(label, {
+        duration: 8000,
         action: {
           label: t('toast.undo'),
           onClick: async () => {

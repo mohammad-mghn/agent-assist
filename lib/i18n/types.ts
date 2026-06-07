@@ -32,6 +32,7 @@ export type TranslationKey =
 	| "form.shortcutHint"
 	| "form.cancel"
 	| "form.save"
+	| "form.delete"
 	| "form.addShortcut"
 	| "sidebar.trigger"
 	| "sidebar.extension"

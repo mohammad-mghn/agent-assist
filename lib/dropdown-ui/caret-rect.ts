@@ -1,6 +1,6 @@
 export function getCaretRect(el: HTMLElement): DOMRect {
-  if (el instanceof HTMLTextAreaElement) {
-    return getTextareaCaretRect(el);
+  if (el.tagName === 'TEXTAREA') {
+    return getTextareaCaretRect(el as HTMLTextAreaElement);
   }
   const sel = window.getSelection();
   if (sel && sel.rangeCount > 0) {

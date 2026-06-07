@@ -37,6 +37,7 @@ export const tr: TranslationMap = {
 		"Herhangi bir alanda {prefix} ve ardından kısayolu yazın",
 	"form.cancel": "İptal",
 	"form.save": "Kaydet",
+	"form.delete": "Sil",
 	"form.addShortcut": "Kısayol ekle",
 	"sidebar.trigger": "Tetikleyici",
 	"sidebar.extension": "Eklenti",

@@ -35,6 +35,7 @@ export const ar: TranslationMap = {
 	"form.shortcutHint": "اكتب {prefix} ثم الاختصار في أي حقل",
 	"form.cancel": "إلغاء",
 	"form.save": "حفظ",
+	"form.delete": "حذف",
 	"form.addShortcut": "إضافة اختصار",
 	"sidebar.trigger": "المُفعّل",
 	"sidebar.extension": "الإضافة",

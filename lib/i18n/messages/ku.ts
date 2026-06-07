@@ -36,6 +36,7 @@ export const ku: TranslationMap = {
 	"form.shortcutHint": "لە هەر خانەیەک {prefix} و دواتر کورتەڕێ بنووسە",
 	"form.cancel": "پاشگەزبوونەوە",
 	"form.save": "پاشەکەوت",
+	"form.delete": "سڕینەوە",
 	"form.addShortcut": "کورتەڕێ زیاد بکە",
 	"sidebar.trigger": "دەستپێکەر",
 	"sidebar.extension": "زیادکراوە",

@@ -1,6 +1,8 @@
 export {
+  findEditableInFrame,
   getDeepActiveElement,
   getContentEditableHost,
+  isContentEditableTarget,
   isEligibleElement,
   isMultilineElement,
   normalizeContent,

@@ -35,6 +35,7 @@ export const fa: TranslationMap = {
 	"form.shortcutHint": "در هر فیلد {prefix} و سپس میانبر را تایپ کنید",
 	"form.cancel": "لغو",
 	"form.save": "ذخیره",
+	"form.delete": "حذف",
 	"form.addShortcut": "افزودن میانبر",
 	"sidebar.trigger": "فعال‌ساز",
 	"sidebar.extension": "افزونه",
